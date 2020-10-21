@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="EscenaInicial" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 416.0
+margin_top = 284.0
+margin_right = 674.0
+margin_bottom = 346.0
+text = "Pantalla inicial
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
