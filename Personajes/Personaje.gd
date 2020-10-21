@@ -16,6 +16,8 @@ func _physics_process(delta):
 	get_input()
 	
 	velocity.y += gravity * delta
+	if jumping:
+		$AnimatedSprite.play("salto")
 	if jumping and is_on_floor():
 		jumping = false
 	velocity = move_and_slide(velocity,Vector2(0, -1))
@@ -33,8 +35,11 @@ func get_input():
 	if right:
 		$AnimatedSprite.play("camina")
 		velocity.x += run_speed
+		$AnimatedSprite.flip_h = false
 	elif left:
 		$AnimatedSprite.play("camina")
+		print($AnimatedSprite.flip_h)
+		$AnimatedSprite.flip_h = true
 		velocity.x -= run_speed	
 	else:
 		$AnimatedSprite.stop()	
