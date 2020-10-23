@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 var direccion;
 export (int) var run_speed = 100
-export (int) var jump_speed = -300
+export (int) var jump_speed = -340
 export (int) var gravity = 1200
 
 var velocity = Vector2()
@@ -30,15 +30,13 @@ func get_input():
 	var jump = Input.is_action_just_pressed('ui_select')
 
 	if jump and is_on_floor():
-		jumping = true
-		velocity.y = jump_speed
+		jump(jump_speed)
 	if right:
 		$AnimatedSprite.play("camina")
 		velocity.x += run_speed
 		$AnimatedSprite.flip_h = false
 	elif left:
 		$AnimatedSprite.play("camina")
-		print($AnimatedSprite.flip_h)
 		$AnimatedSprite.flip_h = true
 		velocity.x -= run_speed	
 	else:
@@ -47,7 +45,24 @@ func get_input():
 func _input(ev):
 	pass
 
+func jump(jump_speed):
+	jumping = true
+	velocity.y = jump_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_KinematicBody2D_body_entered(body):
+	print('jajaj perri')
+	#"mas/StaticBody2D4/KinematicBody2D".
+	$"../KinematicBody2D2/AnimatedSprite".play('salto')
+	jump(-700)
+	$"../KinematicBody2D2/Timer".start()
+	
+	pass # Replace with function body.
+
+
+func _on_Timer_timeout():
+	$"../KinematicBody2D2/AnimatedSprite".play('normal')
