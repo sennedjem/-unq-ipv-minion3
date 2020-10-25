@@ -10,6 +10,7 @@ export (int) var gravity = 1200
 
 var velocity = Vector2()
 var jumping = false
+var jumpings = 0
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
@@ -66,3 +67,14 @@ func _on_KinematicBody2D_body_entered(body):
 
 func _on_Timer_timeout():
 	$"../KinematicBody2D2/AnimatedSprite".play('normal')
+
+
+func _on_KinematicBody2D4_body_entered(body):
+	$"../KinematicBody2D2/AnimatedSprite".play('salto')
+	if jumpings>0:
+		jump(-700+(-70*jumpings))
+	else:	
+		jump(-700)
+	if jumpings<4:
+		jumpings = jumpings +1
+	$"../KinematicBody2D2/Timer".start()
