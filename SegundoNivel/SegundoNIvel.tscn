@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Texturas/fondonegro.jpg" type="Texture" id=1]
 [ext_resource path="res://Personajes/Personaje.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Texturas/plataforma1.png" type="Texture" id=3]
 [ext_resource path="res://Texturas/CosoDeSalto2.png" type="Texture" id=4]
 [ext_resource path="res://Texturas/CosoDeSalto1.png" type="Texture" id=5]
+[ext_resource path="res://Texturas/Plataformita.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -25,6 +26,9 @@ extents = Vector2( 11.6073, 13.1008 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 41.8141, 5.71393 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 41.9907, 7.7272 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="KinematicBody2D2" type="Area2D" parent="."]
@@ -42,6 +46,40 @@ z_index = 1
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="KinematicBody2D2"]
+wait_time = 0.5
+
+[node name="KinematicBody2D3" type="Area2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D3"]
+position = Vector2( 380.903, 357.863 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D3"]
+position = Vector2( 380.771, 361.216 )
+z_index = 1
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="KinematicBody2D3"]
+wait_time = 0.5
+
+[node name="KinematicBody2D4" type="Area2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D4"]
+position = Vector2( 276.632, 453.067 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D4"]
+position = Vector2( 276.432, 457.542 )
+z_index = 1
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="KinematicBody2D4"]
 wait_time = 0.5
 
 [node name="Plataformas" type="Node" parent="."]
@@ -91,6 +129,51 @@ z_index = 1
 texture = ExtResource( 3 )
 offset = Vector2( 0, 34.6201 )
 
+[node name="StaticBody2D6" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D6"]
+position = Vector2( 109.122, 386.262 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D6"]
+position = Vector2( 109.772, 309.068 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 3 )
+offset = Vector2( 0, 34.6201 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D7"]
+position = Vector2( 480.155, 219.773 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D7"]
+position = Vector2( 480.805, 136.633 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 3 )
+offset = Vector2( 0, 34.6201 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D8"]
+position = Vector2( 942.13, 189.655 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D8"]
+position = Vector2( 939.416, 114.502 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 3 )
+offset = Vector2( 0, 34.6201 )
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="Plataformas"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D2"]
@@ -119,8 +202,88 @@ scale = Vector2( 2, 2 )
 z_index = 1
 texture = ExtResource( 3 )
 
+[node name="StaticBody2d6" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d6"]
+position = Vector2( 646.807, 386.617 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d6"]
+position = Vector2( 646.526, 387.644 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d8" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d8"]
+position = Vector2( 207.99, 239.155 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d8"]
+position = Vector2( 207.709, 237.804 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d10" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d10"]
+position = Vector2( 630.158, 177.317 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d10"]
+position = Vector2( 631.067, 179.533 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d11" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d11"]
+position = Vector2( 723.392, 145.819 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d11"]
+position = Vector2( 723.041, 146.775 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d12" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d12"]
+position = Vector2( 820.406, 118.1 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d12"]
+position = Vector2( 818.795, 121.577 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d7" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d7"]
+position = Vector2( 528.013, 356.919 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d7"]
+position = Vector2( 526.318, 356.532 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d9" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d9"]
+position = Vector2( 396.491, 383.789 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d9"]
+position = Vector2( 394.796, 380.573 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d13" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d13"]
+position = Vector2( 271.624, 476.547 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d13"]
+position = Vector2( 271.119, 477.278 )
+shape = SubResource( 4 )
+
 [node name="fondonegro" type="Sprite" parent="."]
-position = Vector2( 513.662, 299.479 )
+position = Vector2( 508.261, 298.241 )
 scale = Vector2( 0.399892, 0.416243 )
 texture = ExtResource( 1 )
 
@@ -129,3 +292,8 @@ position = Vector2( 22.772, 546.025 )
 z_index = 2
 [connection signal="body_entered" from="KinematicBody2D2" to="KinematicBody2D" method="_on_KinematicBody2D_body_entered"]
 [connection signal="timeout" from="KinematicBody2D2/Timer" to="KinematicBody2D" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="KinematicBody2D3" to="KinematicBody2D" method="_on_KinematicBody2D_body_entered"]
+[connection signal="timeout" from="KinematicBody2D3/Timer" to="KinematicBody2D" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="KinematicBody2D4" to="KinematicBody2D" method="_on_KinematicBody2D_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D4" to="KinematicBody2D" method="_on_KinematicBody2D4_body_entered"]
+[connection signal="timeout" from="KinematicBody2D4/Timer" to="KinematicBody2D" method="_on_Timer_timeout"]
