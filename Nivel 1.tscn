@@ -1,0 +1,393 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Personajes/Personaje.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Texturas/plataforma1.png" type="Texture" id=2]
+[ext_resource path="res://Texturas/Plataformita.png" type="Texture" id=3]
+[ext_resource path="res://Texturas/Limit vertical.png" type="Texture" id=4]
+[ext_resource path="res://Texturas/Plataforma que cae.png" type="Texture" id=5]
+[ext_resource path="res://Texturas/Pendiente.png" type="Texture" id=6]
+[ext_resource path="res://Texturas/Puente.png" type="Texture" id=7]
+[ext_resource path="res://Texturas/Gancho.png" type="Texture" id=8]
+[ext_resource path="res://Texturas/Cadena.png" type="Texture" id=9]
+[ext_resource path="res://Texturas/Caja.png" type="Texture" id=10]
+[ext_resource path="res://Texturas/Limit horizontal.png" type="Texture" id=11]
+[ext_resource path="res://Texturas/Saliente.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 118.131, 4.19318 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.31717, 227.384 )
+
+[node name="Nivel 1" type="Node2D"]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 568.235, 247.438 )
+
+[node name="Plataformas" type="Node" parent="."]
+
+[node name="plataforma7" type="Sprite" parent="Plataformas"]
+position = Vector2( 797.621, 527.381 )
+texture = ExtResource( 2 )
+offset = Vector2( -157.688, 6.82312 )
+
+[node name="plataforma8" type="Sprite" parent="Plataformas/plataforma7"]
+texture = ExtResource( 2 )
+offset = Vector2( -76.9904, 6.59082 )
+
+[node name="plataforma9" type="Sprite" parent="Plataformas/plataforma7"]
+texture = ExtResource( 2 )
+offset = Vector2( 3.00964, 6.59082 )
+
+[node name="plataforma10" type="Sprite" parent="Plataformas/plataforma7"]
+position = Vector2( 243.52, 1.8877 )
+texture = ExtResource( 2 )
+offset = Vector2( -157.688, 6.82312 )
+
+[node name="plataforma11" type="Sprite" parent="Plataformas/plataforma7"]
+position = Vector2( 243.52, 1.8877 )
+texture = ExtResource( 2 )
+offset = Vector2( -76.9904, 6.59082 )
+
+[node name="plataforma12" type="Sprite" parent="Plataformas/plataforma7"]
+position = Vector2( 243.52, 1.8877 )
+texture = ExtResource( 2 )
+offset = Vector2( 3.00964, 6.59082 )
+
+[node name="plataforma13" type="Sprite" parent="Plataformas/plataforma7"]
+position = Vector2( 403.978, 1.8877 )
+texture = ExtResource( 2 )
+offset = Vector2( -76.9904, 6.59082 )
+
+[node name="plataforma14" type="Sprite" parent="Plataformas/plataforma7"]
+position = Vector2( 403.978, 1.8877 )
+texture = ExtResource( 2 )
+offset = Vector2( 3.00964, 6.59082 )
+
+[node name="plataforma4" type="Sprite" parent="Plataformas"]
+position = Vector2( 347.332, 491.494 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 8.73145 )
+
+[node name="plataforma5" type="Sprite" parent="Plataformas/plataforma4"]
+position = Vector2( 80.6973, -0.2323 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 8.73145 )
+
+[node name="plataforma6" type="Sprite" parent="Plataformas/plataforma4"]
+position = Vector2( 160.697, -0.2323 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 8.73145 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Plataformas/plataforma4"]
+position = Vector2( -347.332, -491.494 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma4/StaticBody2D2"]
+position = Vector2( 426.382, 506.471 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Plataformas/plataforma4/StaticBody2D2"]
+position = Vector2( 711.642, 539.783 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Plataformas/plataforma4/StaticBody2D2"]
+position = Vector2( 955.161, 541.671 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Plataformas/plataforma4/StaticBody2D2"]
+position = Vector2( 1115.62, 541.671 )
+shape = SubResource( 1 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas"]
+position = Vector2( 96.8292, 524.698 )
+texture = ExtResource( 2 )
+
+[node name="plataforma2" type="Sprite" parent="Plataformas/plataforma1"]
+position = Vector2( 78.7955, 0.23999 )
+texture = ExtResource( 2 )
+
+[node name="plataforma3" type="Sprite" parent="Plataformas/plataforma1"]
+position = Vector2( 156.911, 0.23999 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas/plataforma1"]
+position = Vector2( -102.329, -524.198 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma1/StaticBody2D"]
+position = Vector2( 175.521, 528.457 )
+shape = SubResource( 1 )
+
+[node name="Pared izquierda" type="Node2D" parent="."]
+position = Vector2( 77.1883, 508.494 )
+
+[node name="Limit vertical" type="Sprite" parent="Pared izquierda"]
+position = Vector2( -28.9675, -7.29224 )
+texture = ExtResource( 4 )
+
+[node name="Limit vertical2" type="Sprite" parent="Pared izquierda"]
+position = Vector2( -28.9675, -69.2922 )
+texture = ExtResource( 4 )
+
+[node name="Limit vertical3" type="Sprite" parent="Pared izquierda"]
+position = Vector2( -28.9675, -132.292 )
+texture = ExtResource( 4 )
+
+[node name="Limit vertical4" type="Sprite" parent="Pared izquierda"]
+position = Vector2( -28.9675, -196.292 )
+texture = ExtResource( 4 )
+
+[node name="Limit vertical5" type="Sprite" parent="Pared izquierda"]
+position = Vector2( -28.9675, -258.292 )
+texture = ExtResource( 4 )
+
+[node name="Limit vertical6" type="Sprite" parent="Pared izquierda"]
+position = Vector2( -28.9675, -320.292 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pared izquierda"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared izquierda/StaticBody2D"]
+position = Vector2( -29.9661, -131.851 )
+shape = SubResource( 2 )
+
+[node name="Plataformita" type="Sprite" parent="."]
+position = Vector2( 452.761, 382.237 )
+texture = ExtResource( 3 )
+offset = Vector2( -4.97995, 48.7217 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformita"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformita/StaticBody2D"]
+polygon = PoolVector2Array( -46.8242, 41.8984, 37.6679, 41.8984, 37.4031, 46.1363, -46.5594, 46.666 )
+
+[node name="Parante Izquierdo" type="Node2D" parent="."]
+
+[node name="Pendiente" type="Sprite" parent="Parante Izquierdo"]
+position = Vector2( 76.3009, 356.219 )
+texture = ExtResource( 6 )
+
+[node name="Puente" type="Sprite" parent="Parante Izquierdo"]
+position = Vector2( 107.728, 347.724 )
+texture = ExtResource( 7 )
+
+[node name="Puente2" type="Sprite" parent="Parante Izquierdo"]
+position = Vector2( 137.728, 347.724 )
+texture = ExtResource( 7 )
+
+[node name="Puente3" type="Sprite" parent="Parante Izquierdo"]
+position = Vector2( 169.728, 347.724 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Parante Izquierdo"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Parante Izquierdo/StaticBody2D"]
+position = Vector2( 0, 1.05612 )
+polygon = PoolVector2Array( 186.691, 345.25, 186.691, 350.111, 56.6237, 350.003, 56.4364, 345.321 )
+
+[node name="Plataformas Que Caen" type="Node2D" parent="."]
+
+[node name="Plataforma que cae" type="Sprite" parent="Plataformas Que Caen"]
+position = Vector2( 240.072, 422.959 )
+texture = ExtResource( 5 )
+offset = Vector2( 109.93, -19.9308 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas Que Caen/Plataforma que cae"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas Que Caen/Plataforma que cae/StaticBody2D"]
+polygon = PoolVector2Array( -8.03711, -55.403, -8.31772, -49.7906, 11.8866, -49.7906, 11.8866, -54.5611 )
+
+[node name="Plataforma que cae2" type="Sprite" parent="Plataformas Que Caen"]
+position = Vector2( 179.895, 405.672 )
+texture = ExtResource( 5 )
+offset = Vector2( 109.93, -19.9308 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas Que Caen/Plataforma que cae2"]
+position = Vector2( 0, -6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas Que Caen/Plataforma que cae2/StaticBody2D"]
+position = Vector2( 0, 3.56763 )
+polygon = PoolVector2Array( 100.35, -22.5954, 120.555, -22.5954, 120.555, -17.2637, 99.5085, -16.9831 )
+
+[node name="Plataforma que cae3" type="Sprite" parent="Plataformas Que Caen"]
+position = Vector2( 130.496, 390.784 )
+texture = ExtResource( 5 )
+offset = Vector2( 109.93, -19.9308 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas Que Caen/Plataforma que cae3"]
+position = Vector2( 0, -6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas Que Caen/Plataforma que cae3/StaticBody2D"]
+position = Vector2( 3, 7.94604 )
+polygon = PoolVector2Array( 207.591, 9.97104, 227.795, 9.97104, 227.795, 14.7415, 207.31, 14.4609 )
+
+[node name="Plataforma que cae4" type="Sprite" parent="Plataformas Que Caen"]
+position = Vector2( 913.491, 385.237 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas Que Caen/Plataforma que cae4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas Que Caen/Plataforma que cae4/StaticBody2D"]
+polygon = PoolVector2Array( -9.63184, -2.51608, 9.02014, -2.11923, 9.41699, 2.64297, -9.23499, 2.64297 )
+
+[node name="Plataforma que cae5" type="Sprite" parent="Plataformas Que Caen"]
+position = Vector2( 796.948, 337.668 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas Que Caen/Plataforma que cae5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas Que Caen/Plataforma que cae5/StaticBody2D"]
+polygon = PoolVector2Array( -8.96973, -1.37933, 10.476, -0.982483, 9.68225, 2.58917, -8.57288, 2.58917 )
+
+[node name="Plataforma Alta" type="Node2D" parent="."]
+position = Vector2( 257.448, 296.581 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="plataforma3" type="Sprite" parent="Plataforma Alta"]
+position = Vector2( 58.3613, 0.0778198 )
+texture = ExtResource( 2 )
+
+[node name="plataforma1" type="Sprite" parent="Plataforma Alta"]
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataforma Alta"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataforma Alta/StaticBody2D"]
+polygon = PoolVector2Array( -39.4798, -0.223602, -39.4798, 5.20773, 95.834, 6.06134, 98.0944, 0.494751 )
+
+[node name="Plataforma con Enemigo" type="Node2D" parent="."]
+position = Vector2( 10.5902, -1.57254 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="plataforma2" type="Sprite" parent="Plataforma con Enemigo"]
+position = Vector2( 435.107, 282.566 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataforma con Enemigo/plataforma2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataforma con Enemigo/plataforma2/StaticBody2D"]
+polygon = PoolVector2Array( 39.8925, 0.683502, -39.8575, 1.1835, -40.1075, 5.6835, 39.3925, 5.1835 )
+
+[node name="Techo con gancho" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit horizontal" type="Sprite" parent="Techo con gancho"]
+position = Vector2( 281.037, 165.256 )
+texture = ExtResource( 11 )
+
+[node name="Cadena" type="Sprite" parent="Techo con gancho"]
+position = Vector2( 283.683, 178.91 )
+texture = ExtResource( 9 )
+
+[node name="Cadena2" type="Sprite" parent="Techo con gancho"]
+position = Vector2( 283.683, 193.144 )
+texture = ExtResource( 9 )
+
+[node name="Cadena3" type="Sprite" parent="Techo con gancho"]
+position = Vector2( 283.683, 207.144 )
+texture = ExtResource( 9 )
+
+[node name="Gancho" type="Sprite" parent="Techo con gancho"]
+position = Vector2( 283.472, 218.562 )
+texture = ExtResource( 8 )
+
+[node name="Caja" type="Sprite" parent="Techo con gancho"]
+position = Vector2( 283.013, 229.136 )
+texture = ExtResource( 10 )
+
+[node name="Saliente" type="Sprite" parent="."]
+position = Vector2( 563.253, 366.477 )
+scale = Vector2( 3.22614, 2.83193 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Saliente"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Saliente/StaticBody2D"]
+polygon = PoolVector2Array( -7.33212, -35.0328, -7.33212, -32.5864, 1.71399, -25.6548, 2.75777, 22.8663, -2.80908, 30.6134, -7.68007, 30.6134, -7.33212, 35.0986, 7.62874, 35.5063, 7.28081, -35.4406 )
+
+[node name="plataforma1" type="Sprite" parent="."]
+position = Vector2( 702.704, 313.884 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="plataforma1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="plataforma1/StaticBody2D"]
+polygon = PoolVector2Array( -39.9581, 1.3884, -39.9581, 6.28833, 38.441, 6.7338, 39.3318, 0.942963 )
+
+[node name="Plataforma que cae2" type="Sprite" parent="."]
+position = Vector2( 851.652, 361.453 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataforma que cae2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataforma que cae2/StaticBody2D"]
+polygon = PoolVector2Array( -10.2946, -3.00894, 9.34845, -2.72833, 9.62909, 3.16458, -9.7334, 2.60336 )
+
+[node name="Techo" type="Node2D" parent="."]
+
+[node name="Limit horizontal" type="Sprite" parent="Techo"]
+position = Vector2( 580.872, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Limit horizontal2" type="Sprite" parent="Techo"]
+position = Vector2( 644.872, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Limit horizontal3" type="Sprite" parent="Techo"]
+position = Vector2( 701.872, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Limit horizontal4" type="Sprite" parent="Techo"]
+position = Vector2( 764.872, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Limit horizontal5" type="Sprite" parent="Techo"]
+position = Vector2( 828.872, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Limit horizontal6" type="Sprite" parent="Techo"]
+position = Vector2( 1014.87, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Limit horizontal7" type="Sprite" parent="Techo"]
+position = Vector2( 957.872, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Limit horizontal9" type="Sprite" parent="Techo"]
+position = Vector2( 937.872, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Limit horizontal8" type="Sprite" parent="Techo"]
+position = Vector2( 889.872, 165.417 )
+texture = ExtResource( 11 )
+
+[node name="Fin" type="Node2D" parent="."]
+
+[node name="plataforma2" type="Sprite" parent="Fin"]
+position = Vector2( 1006.25, 423.291 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fin/plataforma2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fin/plataforma2/StaticBody2D"]
+polygon = PoolVector2Array( -39.6083, -0.357697, -39.6083, 4.80136, 37.7776, 4.80136, 38.9681, 1.22971 )
