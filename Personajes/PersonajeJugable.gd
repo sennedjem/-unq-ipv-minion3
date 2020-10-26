@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal pj_step()
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,6 +12,7 @@ export (int) var gravity = 1200
 var velocity = Vector2()
 var jumping = false
 var jumpings = 0
+var pasos = 0
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
@@ -34,19 +36,21 @@ func get_input():
 		jump(jump_speed)
 	if right:
 		$AnimatedSprite.play("camina")
+		pasos = pasos + 0.1
+		contar_paso()
 		velocity.x += run_speed
 		$AnimatedSprite.flip_h = false
 	elif left:
+		pasos = pasos + 0.1
+		contar_paso()
 		$AnimatedSprite.play("camina")
 		$AnimatedSprite.flip_h = true
 		velocity.x -= run_speed	
 	else:
 		$AnimatedSprite.stop()	
-	
-func _input(ev):
-	pass
 
 func jump(jump_speed):
+	print('jaja')
 	jumping = true
 	velocity.y = jump_speed
 
@@ -54,27 +58,42 @@ func jump(jump_speed):
 #func _process(delta):
 #	pass
 
-
-func _on_KinematicBody2D_body_entered(body):
-	print('jajaj perri')
-	#"mas/StaticBody2D4/KinematicBody2D".
-	$"../KinematicBody2D2/AnimatedSprite".play('salto')
-	jump(-700)
-	$"../KinematicBody2D2/Timer".start()
-	
-	pass # Replace with function body.
-
-
 func _on_Timer_timeout():
-	$"../KinematicBody2D2/AnimatedSprite".play('normal')
+	$"../KinematicBody2D2/Caja".play('normal')
 
 
 func _on_KinematicBody2D4_body_entered(body):
-	$"../KinematicBody2D2/AnimatedSprite".play('salto')
+	$"../KinematicBody2D4/Caja".play('salto')
 	if jumpings>0:
 		jump(-700+(-70*jumpings))
 	else:	
 		jump(-700)
 	if jumpings<4:
 		jumpings = jumpings +1
-	$"../KinematicBody2D2/Timer".start()
+	$"../KinematicBody2D4/TimerBox2".start()
+
+
+func _on_TimerBox2_timeout():
+	$"../KinematicBody2D4/Caja".play('normal')
+
+
+func _on_TimerBox3_timeout():
+	$"../KinematicBody2D3/Caja".play('normal')
+
+func contar_paso():
+	var oldPasos = pasos
+	pasos = pasos + 0.05
+	if round(pasos) > round(oldPasos):
+		emit_signal("pj_step")
+
+func _on_KinematicBody2D3_body_entered(body):
+	salto_normal($"../KinematicBody2D3/Caja",$"../KinematicBody2D3/TimerBox3")
+
+
+func _on_KinematicBody2D2_body_entered(body):
+	salto_normal($"../KinematicBody2D2/Caja",$"../KinematicBody2D2/Timer")
+
+func salto_normal(caja,timer):
+	caja.play('salto')
+	jump(-700)
+	timer.start()
