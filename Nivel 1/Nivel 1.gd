@@ -34,6 +34,8 @@ func _on_Timer_timeout():
 	if (seconds >= 1):
 		seconds -= 1
 		$CanvasLayer/Timer.text = str(seconds)
+	else:
+		get_tree().change_scene("res://GameOver/GameOver.tscn")
 
 
 func _on_Button_pressed():
@@ -53,5 +55,6 @@ func _on_Caja_Final_personaje_salio():
 	esta_en_final = false
 
 
-func _on_Caja_body_shape_entered(body_id, body, body_shape, area_shape):
-	print(body.name)
+func _on_Area2D_body_entered(body):
+	if (body.name == "PersonajeJugable"):
+		get_tree().change_scene("res://GameOver/GameOver.tscn")
