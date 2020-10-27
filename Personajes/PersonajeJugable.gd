@@ -25,6 +25,8 @@ func _physics_process(delta):
 		jumping = false
 	velocity = move_and_slide(velocity,Vector2(0, -1))
 
+func jump_power_up():
+	jump_speed = -800
 
 func get_input():
 	velocity.x = 0

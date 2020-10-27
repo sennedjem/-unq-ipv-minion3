@@ -1,0 +1,965 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Personajes/Personaje.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Texturas/Limit vertical.png" type="Texture" id=2]
+[ext_resource path="res://Texturas/plataforma1.png" type="Texture" id=3]
+[ext_resource path="res://Texturas/Plataforma que cae.png" type="Texture" id=4]
+[ext_resource path="res://Texturas/Plataformita.png" type="Texture" id=5]
+[ext_resource path="res://Texturas/Limit horizontal.png" type="Texture" id=6]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Nivel 3.gd" type="Script" id=8]
+[ext_resource path="res://CajaFinal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Pwrup.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/font.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = SubResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1163.19, 10 )
+
+[node name="Nivel 3" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="PersonajeJugable" parent="." instance=ExtResource( 1 )]
+position = Vector2( 51.4557, 513.595 )
+z_index = 3
+
+[node name="Limite izquierdo" type="Node2D" parent="."]
+
+[node name="Limit vertical" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 570.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical2" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 509.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical3" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 447.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical4" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 386.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical5" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 325.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical6" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 263.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical7" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 340.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical8" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 279.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical9" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 217.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical10" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 156.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical11" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 95.7804 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical12" type="Sprite" parent="Limite izquierdo"]
+position = Vector2( 8.13315, 33.7804 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Limite izquierdo"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limite izquierdo/StaticBody2D"]
+polygon = PoolVector2Array( 12.5054, 591.775, 16, 0.65938, -1.65883, 0.65938, 2.19366, 602.743, 13.8477, 601.683 )
+
+[node name="Piso" type="Node2D" parent="."]
+
+[node name="plataforma1" type="Sprite" parent="Piso"]
+position = Vector2( 57.3781, 579.758 )
+texture = ExtResource( 3 )
+
+[node name="plataforma2" type="Sprite" parent="Piso"]
+position = Vector2( 129.378, 579.758 )
+texture = ExtResource( 3 )
+
+[node name="plataforma3" type="Sprite" parent="Piso"]
+position = Vector2( 201.378, 579.758 )
+texture = ExtResource( 3 )
+
+[node name="plataforma4" type="Sprite" parent="Piso"]
+position = Vector2( 273.378, 579.758 )
+texture = ExtResource( 3 )
+
+[node name="plataforma5" type="Sprite" parent="Piso"]
+position = Vector2( 444.378, 578.758 )
+texture = ExtResource( 3 )
+
+[node name="plataforma6" type="Sprite" parent="Piso"]
+position = Vector2( 516.378, 578.758 )
+texture = ExtResource( 3 )
+
+[node name="plataforma7" type="Sprite" parent="Piso"]
+position = Vector2( 647.378, 578.758 )
+texture = ExtResource( 3 )
+
+[node name="plataforma8" type="Sprite" parent="Piso"]
+position = Vector2( 723.378, 578.758 )
+texture = ExtResource( 3 )
+
+[node name="plataforma9" type="Sprite" parent="Piso"]
+position = Vector2( 797.378, 578.758 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Piso"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Piso/StaticBody2D"]
+polygon = PoolVector2Array( 311.596, 579.135, 299.109, 594.595, 54.1647, 591.637, 20.3105, 582.728 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Piso"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Piso/StaticBody2D2"]
+polygon = PoolVector2Array( 554.312, 578.67, 404.81, 579.337, 420.161, 586.011, 540.964, 591.351 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Piso"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Piso/StaticBody2D3"]
+polygon = PoolVector2Array( 611.043, 577.335, 645.081, 590.683, 824.632, 590.416, 837.346, 580.351 )
+
+[node name="Plataformas flotantes" type="Node2D" parent="."]
+
+[node name="Plataforma que cae" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 360.275, 548.148 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae2" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 297.538, 524.789 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae2/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae3" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 241.475, 504.099 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae3/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae4" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 251.216, 454.201 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae4/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae6" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 440.914, 404.282 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae6"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae6/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae10" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 649.499, 288.136 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae10"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae10/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae9" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 743.422, 347.818 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae9"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae9/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae11" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 702.395, 316.304 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae11"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae11/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae12" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 484.924, 193.059 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae12"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae12/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae7" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 253.29, 389.501 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae7"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae7/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae8" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 204.301, 351.367 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae8"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae8/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataforma que cae5" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 190.083, 481.406 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataforma que cae5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataforma que cae5/StaticBody2D"]
+polygon = PoolVector2Array( -9.72437, -2.51752, 9.61624, -2.72778, 9.40604, 2.73804, -9.9346, 2.31763 )
+
+[node name="Plataformita" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 349.01, 429.495 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataformita"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataformita/StaticBody2D"]
+polygon = PoolVector2Array( -41.6566, -8.07434, -42.077, -3.02896, 41.1718, -3.02896, 42.0126, -7.23343 )
+
+[node name="Plataformita2" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 541.857, 404.489 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataformita2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataformita2/StaticBody2D"]
+polygon = PoolVector2Array( -41.6566, -8.07434, -42.077, -3.02896, 41.1718, -3.02896, 42.0126, -7.23343 )
+
+[node name="Plataformita3" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 675.693, 379.997 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataformita3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataformita3/StaticBody2D"]
+polygon = PoolVector2Array( -41.6566, -8.07434, -42.077, -3.02896, 41.1718, -3.02896, 42.0126, -7.23343 )
+
+[node name="Plataformita4" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 849.641, 412.524 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataformita4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataformita4/StaticBody2D"]
+polygon = PoolVector2Array( -41.6566, -8.07434, -42.077, -3.02896, 41.1718, -3.02896, 42.0126, -7.23343 )
+
+[node name="Plataformita5" type="Sprite" parent="Plataformas flotantes"]
+position = Vector2( 922.641, 412.524 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas flotantes/Plataformita5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataformas flotantes/Plataformita5/StaticBody2D"]
+polygon = PoolVector2Array( -41.6566, -8.07434, -42.077, -3.02896, 41.1718, -3.02896, 42.0126, -7.23343 )
+
+[node name="Techo" type="Node2D" parent="."]
+
+[node name="Limit horizontal" type="Sprite" parent="Techo"]
+position = Vector2( 512.492, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal2" type="Sprite" parent="Techo"]
+position = Vector2( 574.492, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal3" type="Sprite" parent="Techo"]
+position = Vector2( 635.492, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal4" type="Sprite" parent="Techo"]
+position = Vector2( 697.492, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal5" type="Sprite" parent="Techo"]
+position = Vector2( 749.827, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal6" type="Sprite" parent="Techo"]
+position = Vector2( 811.827, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal7" type="Sprite" parent="Techo"]
+position = Vector2( 871.492, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal8" type="Sprite" parent="Techo"]
+position = Vector2( 934.827, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal9" type="Sprite" parent="Techo"]
+position = Vector2( 894.827, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal10" type="Sprite" parent="Techo"]
+position = Vector2( 956.827, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal11" type="Sprite" parent="Techo"]
+position = Vector2( 1016.49, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal12" type="Sprite" parent="Techo"]
+position = Vector2( 1079.83, 59.5578 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Techo"]
+position = Vector2( 18, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Techo/StaticBody2D"]
+position = Vector2( 0, 1.18921 )
+polygon = PoolVector2Array( 462.664, 50.4822, 462.664, 66.0729, 1094, 65, 1095, 50 )
+
+[node name="Trampa" type="Node2D" parent="."]
+
+[node name="Limite derecho4" type="Node2D" parent="Trampa"]
+position = Vector2( 1146.2, 50.0565 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit vertical" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 570.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical2" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 509.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical3" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 447.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical4" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 386.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical5" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 325.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical6" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 263.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical7" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 340.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical8" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 279.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical9" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 217.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical10" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 156.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical11" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 95.7804 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical12" type="Sprite" parent="Trampa/Limite derecho4"]
+position = Vector2( 8.13315, 33.7804 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Limite derecho4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Limite derecho4/StaticBody2D"]
+polygon = PoolVector2Array( 12.5054, 591.775, 16, 0.65938, -1.65883, 0.65938, 2.19366, 602.743, 13.8477, 601.683 )
+
+[node name="Limite derecho5" type="Node2D" parent="Trampa"]
+position = Vector2( 1383.2, 50.0565 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit vertical" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 570.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical2" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 509.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical3" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 447.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical4" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 386.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical5" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 325.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical6" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 263.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical7" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 340.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical8" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 279.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical9" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 217.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical10" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 156.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical11" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 95.7804 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical12" type="Sprite" parent="Trampa/Limite derecho5"]
+position = Vector2( 8.13315, 33.7804 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Limite derecho5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Limite derecho5/StaticBody2D"]
+polygon = PoolVector2Array( 12.5054, 591.775, 16, 0.65938, -1.65883, 0.65938, 2.19366, 602.743, 13.8477, 601.683 )
+
+[node name="Limite derecho6" type="Node2D" parent="Trampa"]
+position = Vector2( 1400.2, 50.0565 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit vertical" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 570.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical2" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 509.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical3" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 447.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical4" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 386.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical5" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 325.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical6" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 263.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical7" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 340.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical8" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 279.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical9" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 217.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical10" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 156.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical11" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 95.7804 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical12" type="Sprite" parent="Trampa/Limite derecho6"]
+position = Vector2( 8.13315, 33.7804 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Limite derecho6"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Limite derecho6/StaticBody2D"]
+polygon = PoolVector2Array( 12.5054, 591.775, 16, 0.65938, -1.65883, 0.65938, 2.19366, 602.743, 13.8477, 601.683 )
+
+[node name="Limite derecho7" type="Node2D" parent="Trampa"]
+position = Vector2( 1416.2, 50.0565 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit vertical" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 570.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical2" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 509.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical3" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 447.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical4" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 386.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical5" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 325.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical6" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 263.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical7" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 340.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical8" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 279.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical9" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 217.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical10" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 156.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical11" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 95.7804 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical12" type="Sprite" parent="Trampa/Limite derecho7"]
+position = Vector2( 8.13315, 33.7804 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Limite derecho7"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Limite derecho7/StaticBody2D"]
+polygon = PoolVector2Array( 12.5054, 591.775, 16, 0.65938, -1.65883, 0.65938, 2.19366, 602.743, 13.8477, 601.683 )
+
+[node name="Limite derecho" type="Node2D" parent="Trampa"]
+position = Vector2( 1131.2, 50.0565 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit vertical" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 570.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical2" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 509.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical3" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 447.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical4" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 386.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical5" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 325.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical6" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 263.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical7" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 340.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical8" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 279.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical9" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 217.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical10" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 156.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical11" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 95.7804 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical12" type="Sprite" parent="Trampa/Limite derecho"]
+position = Vector2( 8.13315, 33.7804 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Limite derecho"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Limite derecho/StaticBody2D"]
+polygon = PoolVector2Array( 12.5054, 591.775, 16, 0.65938, -1.65883, 0.65938, 2.19366, 602.743, 13.8477, 601.683 )
+
+[node name="Limite derecho2" type="Node2D" parent="Trampa"]
+position = Vector2( 1112.2, 50.0565 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit vertical" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 570.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical2" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 509.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical3" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 447.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical4" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 386.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical5" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 325.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical6" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 263.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical7" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 340.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical8" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 279.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical9" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 217.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical10" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 156.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical11" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 95.7804 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical12" type="Sprite" parent="Trampa/Limite derecho2"]
+position = Vector2( 8.13315, 33.7804 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Limite derecho2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Limite derecho2/StaticBody2D"]
+polygon = PoolVector2Array( 12.5054, 591.775, 16, 0.65938, -1.65883, 0.65938, 2.19366, 602.743, 13.8477, 601.683 )
+
+[node name="Limite derecho3" type="Node2D" parent="Trampa"]
+position = Vector2( 1130.2, 50.0565 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit vertical" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 570.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical2" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 509.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical3" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 447.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical4" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 386.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical5" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 325.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical6" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 263.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical7" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 340.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical8" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 279.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical9" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 217.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical10" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 156.78 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical11" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 95.7804 )
+texture = ExtResource( 2 )
+
+[node name="Limit vertical12" type="Sprite" parent="Trampa/Limite derecho3"]
+position = Vector2( 8.13315, 33.7804 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Limite derecho3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Limite derecho3/StaticBody2D"]
+polygon = PoolVector2Array( 12.5054, 591.775, 16, 0.65938, -1.65883, 0.65938, 2.19366, 602.743, 13.8477, 601.683 )
+
+[node name="Piso" type="Node2D" parent="Trampa"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit horizontal" type="Sprite" parent="Trampa/Piso"]
+position = Vector2( 1194.77, 582.143 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal2" type="Sprite" parent="Trampa/Piso"]
+position = Vector2( 1256.77, 582.143 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal3" type="Sprite" parent="Trampa/Piso"]
+position = Vector2( 1318.77, 582.143 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal4" type="Sprite" parent="Trampa/Piso"]
+position = Vector2( 1351.77, 582.143 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Piso"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Piso/StaticBody2D"]
+polygon = PoolVector2Array( 1158.54, 576.964, 1384.54, 574.964, 1382.54, 586.964 )
+
+[node name="Piso2" type="Node2D" parent="Trampa"]
+position = Vector2( 1.41418, 12.728 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Limit horizontal" type="Sprite" parent="Trampa/Piso2"]
+position = Vector2( 1194.77, 582.143 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal2" type="Sprite" parent="Trampa/Piso2"]
+position = Vector2( 1256.77, 582.143 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal3" type="Sprite" parent="Trampa/Piso2"]
+position = Vector2( 1318.77, 582.143 )
+texture = ExtResource( 6 )
+
+[node name="Limit horizontal4" type="Sprite" parent="Trampa/Piso2"]
+position = Vector2( 1351.77, 582.143 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trampa/Piso2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trampa/Piso2/StaticBody2D"]
+polygon = PoolVector2Array( 1158.54, 576.964, 1384.54, 574.964, 1382.54, 586.964 )
+
+[node name="Caja Activa" parent="Trampa" instance=ExtResource( 9 )]
+position = Vector2( 1235.2, 518.128 )
+
+[node name="Monedas" type="Node2D" parent="."]
+
+[node name="Coin" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 103.099, 563.005 )
+
+[node name="Coin2" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 190.641, 468.388 )
+
+[node name="Coin3" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 253.574, 440.104 )
+
+[node name="Coin4" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 204.783, 338.988 )
+
+[node name="Coin5" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 440.25, 392.021 )
+
+[node name="Coin6" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 648.139, 275.348 )
+
+[node name="Coin10" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 821.812, 386.725 )
+
+[node name="Coin7" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 673.956, 360.655 )
+
+[node name="Coin8" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 781.312, 550.163 )
+
+[node name="Coin9" parent="Monedas" instance=ExtResource( 7 )]
+position = Vector2( 361.511, 527.714 )
+
+[node name="CajaFinal" parent="." instance=ExtResource( 9 )]
+position = Vector2( 858.377, 347.133 )
+
+[node name="Top Line" type="CanvasLayer" parent="."]
+
+[node name="Time" type="Label" parent="Top Line"]
+margin_left = 34.0179
+margin_top = 6.29961
+margin_right = 74.0179
+margin_bottom = 20.2996
+custom_fonts/font = SubResource( 2 )
+text = "30"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Label" parent="Top Line"]
+margin_left = 972.302
+margin_top = 9.86722
+margin_right = 1012.3
+margin_bottom = 23.8672
+custom_fonts/font = SubResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 466.027, 563.728 )
+
+[node name="Pwrup" type="Sprite" parent="Area2D"]
+texture = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -4.98157, -7.05566, -5.42703, 6.3078, 5.26373, 5.86237, 5.26373, -7.94659 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( -63.496, 657.184 )
+shape = SubResource( 3 )
+[connection signal="personaje_entro" from="Trampa/Caja Activa" to="." method="_on_Caja_Activa_personaje_entro"]
+[connection signal="personaje_salio" from="Trampa/Caja Activa" to="." method="_on_Caja_Activa_personaje_salio"]
+[connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin2" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin3" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin4" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin5" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin6" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin10" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin7" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin8" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin9" to="." method="_on_Coin_pj_entered"]
+[connection signal="personaje_entro" from="CajaFinal" to="." method="_on_CajaFinal_personaje_entro"]
+[connection signal="personaje_salio" from="CajaFinal" to="." method="_on_CajaFinal_personaje_salio"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
