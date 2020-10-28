@@ -1,0 +1,659 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://fonts/font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Resources/Coin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/CajaFinal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Personaje.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Texturas/CosoDeSalto2.png" type="Texture" id=5]
+[ext_resource path="res://Texturas/CosoDeSalto1.png" type="Texture" id=6]
+[ext_resource path="res://Texturas/Limit horizontal.png" type="Texture" id=7]
+[ext_resource path="res://Sonidos/musicadefondo.wav" type="AudioStream" id=8]
+[ext_resource path="res://Texturas/fondonegro.jpg" type="Texture" id=9]
+[ext_resource path="res://Sonidos/coins.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sonidos/success.wav" type="AudioStream" id=11]
+[ext_resource path="res://Texturas/plataforma1.png" type="Texture" id=12]
+[ext_resource path="res://Texturas/Plataformita.png" type="Texture" id=13]
+[ext_resource path="res://Texturas/Plataforma que cae.png" type="Texture" id=14]
+[ext_resource path="res://Texturas/Limit vertical.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/PrimerNivel.gd" type="Script" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "salto",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11.6073, 13.1008 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 41.8141, 5.71393 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 41.9907, 7.7272 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10.7926, 2.75391 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 284.807, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 131.394, 7.11231 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 18
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 568, 10 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 16 )
+
+[node name="KinematicBody2D2" type="Area2D" parent="."]
+
+[node name="Caja" type="AnimatedSprite" parent="KinematicBody2D2"]
+position = Vector2( 716.072, 563.869 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2"]
+position = Vector2( 715.465, 567.691 )
+z_index = 1
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="KinematicBody2D2"]
+wait_time = 0.5
+
+[node name="KinematicBody2D5" type="Area2D" parent="."]
+
+[node name="Caja" type="AnimatedSprite" parent="KinematicBody2D5"]
+position = Vector2( 716.072, 563.869 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D5"]
+position = Vector2( 715.465, 567.691 )
+z_index = 1
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="KinematicBody2D5"]
+wait_time = 0.5
+
+[node name="KinematicBody2D3" type="Area2D" parent="."]
+
+[node name="Caja" type="AnimatedSprite" parent="KinematicBody2D3"]
+position = Vector2( 68.644, 379.707 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D3"]
+position = Vector2( 68.1904, 384.895 )
+z_index = 1
+shape = SubResource( 2 )
+
+[node name="TimerBox3" type="Timer" parent="KinematicBody2D3"]
+wait_time = 0.5
+
+[node name="KinematicBody2D4" type="Area2D" parent="."]
+
+[node name="Caja" type="AnimatedSprite" parent="KinematicBody2D4"]
+position = Vector2( 310.192, 453.148 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+frames = SubResource( 1 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D4"]
+position = Vector2( 309.992, 459.742 )
+z_index = 1
+shape = SubResource( 2 )
+
+[node name="TimerBox2" type="Timer" parent="KinematicBody2D4"]
+wait_time = 0.5
+
+[node name="Plataformas" type="Node" parent="."]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D4"]
+position = Vector2( 645.565, 591.63 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D4"]
+position = Vector2( 645.093, 508.572 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 12 )
+offset = Vector2( 0, 34.6201 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D3"]
+position = Vector2( 424.122, 533.69 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D3"]
+position = Vector2( 425.237, 452.219 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 12 )
+offset = Vector2( 0, 34.6201 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D5"]
+position = Vector2( 812.499, 409.532 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D5"]
+position = Vector2( 815.463, 325.942 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 12 )
+offset = Vector2( 0, 34.6201 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D6"]
+position = Vector2( 101.571, 411.747 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D6"]
+position = Vector2( 102.221, 334.553 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 12 )
+offset = Vector2( 0, 34.6201 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D7"]
+position = Vector2( 452.091, 221.267 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D7"]
+position = Vector2( 449.436, 141.305 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 12 )
+offset = Vector2( 0, 34.6201 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D8"]
+position = Vector2( 942.13, 189.655 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D8"]
+position = Vector2( 939.416, 114.502 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 12 )
+offset = Vector2( 0, 34.6201 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D2"]
+position = Vector2( 251.889, 576.55 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D2"]
+position = Vector2( 248.242, 561.144 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataformas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2D"]
+position = Vector2( 84.8057, 577.144 )
+scale = Vector2( 2, 2 )
+z_index = 1
+shape = SubResource( 3 )
+
+[node name="plataforma1" type="Sprite" parent="Plataformas/StaticBody2D"]
+position = Vector2( 87.8931, 561.144 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 12 )
+
+[node name="StaticBody2d6" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d6"]
+position = Vector2( 646.807, 386.617 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d6"]
+position = Vector2( 646.526, 387.644 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d14" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d14"]
+position = Vector2( 374.261, 89.5843 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d14"]
+position = Vector2( 373.826, 89.3514 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d8" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d8"]
+position = Vector2( 160.355, 227.355 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d8"]
+position = Vector2( 160.074, 226.948 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d10" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d10"]
+position = Vector2( 614.14, 182.656 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d10"]
+position = Vector2( 615.049, 184.872 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d11" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d11"]
+position = Vector2( 720.055, 151.158 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d11"]
+position = Vector2( 719.704, 152.782 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d12" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d12"]
+position = Vector2( 820.406, 118.1 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d12"]
+position = Vector2( 818.795, 121.577 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d7" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d7"]
+position = Vector2( 523.251, 350.569 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d7"]
+position = Vector2( 523.143, 350.182 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d9" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d9"]
+position = Vector2( 405.513, 302.372 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d9"]
+position = Vector2( 403.818, 299.156 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2d15" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d15"]
+position = Vector2( 288.89, 289.335 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d15"]
+position = Vector2( 289.436, 290.362 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2d17" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d17"]
+position = Vector2( 228.786, 189.633 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d17"]
+position = Vector2( 228.625, 190.66 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2d18" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d18"]
+position = Vector2( 272.627, 170.541 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d18"]
+position = Vector2( 272.466, 170.861 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2d19" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d19"]
+position = Vector2( 272.627, 170.541 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d19"]
+position = Vector2( 272.466, 170.861 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2d20" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d20"]
+position = Vector2( 335.559, 181.148 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d20"]
+position = Vector2( 337.52, 180.76 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2d16" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d16"]
+position = Vector2( 233.736, 265.294 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d16"]
+position = Vector2( 234.282, 264.906 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2d13" type="StaticBody2D" parent="Plataformas"]
+
+[node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d13"]
+position = Vector2( 298.577, 478.747 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d13"]
+position = Vector2( 295.24, 480.422 )
+shape = SubResource( 4 )
+
+[node name="ParedVerticalDerecha" type="Node" parent="."]
+
+[node name="Limit vertical" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1032.63, 543.577 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical2" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1032.69, 479.799 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical3" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1032.69, 415.581 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical4" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1032.98, 351.332 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical5" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1032.98, 287.352 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical6" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1032.91, 224.001 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical7" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1032.82, 160.355 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical8" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1033, 96.283 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical9" type="Sprite" parent="ParedVerticalDerecha"]
+position = Vector2( 1033, 33 )
+texture = ExtResource( 15 )
+
+[node name="Static2d" type="StaticBody2D" parent="ParedVerticalDerecha"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedVerticalDerecha/Static2d"]
+position = Vector2( 1032.59, 282.471 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="ParedVerticalIzquierda" type="Node" parent="."]
+
+[node name="Limit vertical1" type="Sprite" parent="ParedVerticalIzquierda"]
+position = Vector2( 1.11511, 533.859 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical2" type="Sprite" parent="ParedVerticalIzquierda"]
+position = Vector2( 1.11511, 471.493 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical3" type="Sprite" parent="ParedVerticalIzquierda"]
+position = Vector2( 1.33371, 407.761 )
+texture = ExtResource( 15 )
+
+[node name="Limit vertical4" type="Sprite" parent="ParedVerticalIzquierda"]
+position = Vector2( 1.4, 344 )
+texture = ExtResource( 15 )
+
+[node name="Area2D" type="StaticBody2D" parent="ParedVerticalIzquierda"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedVerticalIzquierda/Area2D"]
+position = Vector2( 1.94374, 439.225 )
+rotation = 1.5708
+shape = SubResource( 7 )
+
+[node name="ParedHorizontalAlta" type="Node" parent="."]
+
+[node name="Limit horizontal" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 990.973, 8.57 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal2" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 927.023, 8.57 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal3" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 863.303, 8.57 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal4" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 800.869, 8.57 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal5" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 736.675, 8.23203 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal6" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 672.936, 8.23203 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal7" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 609.198, 7.89832 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal8" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 545.374, 7.89831 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal9" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 481.636, 7.89832 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal10" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 417.897, 8.23203 )
+texture = ExtResource( 7 )
+
+[node name="Limit horizontal11" type="Sprite" parent="ParedHorizontalAlta"]
+position = Vector2( 354.159, 7.89832 )
+texture = ExtResource( 7 )
+
+[node name="fondonegro" type="Sprite" parent="."]
+position = Vector2( 621.366, 429.471 )
+scale = Vector2( 0.624177, 0.620518 )
+texture = ExtResource( 9 )
+
+[node name="PersonajeJugable" parent="." instance=ExtResource( 4 )]
+position = Vector2( 22.772, 546.025 )
+z_index = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pasos" type="Label" parent="CanvasLayer"]
+margin_left = 8.0
+margin_top = 13.0
+margin_right = 162.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 8 )
+text = "Pasos
+Restantes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cantidad" type="Label" parent="CanvasLayer/Pasos"]
+margin_left = 168.224
+margin_top = 8.97968
+margin_right = 212.224
+margin_bottom = 29.9797
+custom_fonts/font = SubResource( 8 )
+text = "50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Monedas" type="Label" parent="CanvasLayer"]
+margin_left = 968.347
+margin_top = 23.0609
+margin_right = 1000.35
+margin_bottom = 44.0609
+custom_fonts/font = SubResource( 8 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Monedas" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Coin" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 115.109, 550.24 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="Coin2" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 206.828, 549.463 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="Coin3" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 386.082, 510.194 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="Coin4" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 331.353, 462.808 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="Coin5" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 384.27, 195.704 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="Coin6" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 467.425, 198.224 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="Coin7" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 606.016, 166.726 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="Coin8" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 699.25, 133.968 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="Coin9" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 826.502, 101.21 )
+scale = Vector2( 0.8, 0.816 )
+
+[node name="Coin10" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 922.256, 160.427 )
+scale = Vector2( 0.8, 0.816 )
+z_index = 1
+
+[node name="CajaFinal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 909, 128.5 )
+z_index = 2
+
+[node name="bottom" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
+position = Vector2( 490, 616 )
+shape = SubResource( 9 )
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Success" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+
+[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -0.5
+[connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
+[connection signal="timeout" from="KinematicBody2D2/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="KinematicBody2D5" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D5" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
+[connection signal="timeout" from="KinematicBody2D5/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D3_body_entered"]
+[connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_Timer_timeout"]
+[connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_TimerBox3_timeout"]
+[connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D4_body_entered"]
+[connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_Timer_timeout"]
+[connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_TimerBox2_timeout"]
+[connection signal="pj_step" from="PersonajeJugable" to="." method="_on_PersonajeJugable_pj_step"]
+[connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin2" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin3" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin4" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin5" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin6" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin7" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin8" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin9" to="." method="_on_Coin_pj_entered"]
+[connection signal="pj_entered" from="Monedas/Coin10" to="." method="_on_Coin_pj_entered"]
+[connection signal="personaje_entro" from="CajaFinal" to="." method="_on_CajaFinal_personaje_entro"]
+[connection signal="personaje_salio" from="CajaFinal" to="." method="_on_CajaFinal_personaje_salio"]
+[connection signal="body_entered" from="bottom" to="." method="_on_bottom_body_entered"]
+[connection signal="finished" from="MusicaFondo" to="." method="_on_MusicaFondo_finished"]
