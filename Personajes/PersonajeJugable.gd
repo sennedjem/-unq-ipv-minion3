@@ -52,7 +52,6 @@ func get_input():
 		$AnimatedSprite.stop()	
 
 func jump(jump_speed):
-	print('jaja')
 	jumping = true
 	velocity.y = jump_speed
 

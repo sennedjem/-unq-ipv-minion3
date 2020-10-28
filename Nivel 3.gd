@@ -52,7 +52,7 @@ func _on_CajaFinal_personaje_salio():
 func check_ending():
 	if(puede_avanzar):
 		if(esta_en_final && Input.is_action_just_pressed('ui_accept')):
-			get_tree().change_scene("res://SegundoNivel/SegundoNIvel.tscn")
+			get_tree().change_scene("res://JuegoFinalizado/JuegoFinalizado.tscn")
 
 
 func _on_Caja_Activa_personaje_entro():

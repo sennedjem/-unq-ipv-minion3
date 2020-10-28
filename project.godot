@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Unq-ipv-minion 3"
-run/main_scene="res://Nivel 3.tscn"
+run/main_scene="res://PantallaInicial/EscenaInicial.tscn"
 config/icon="res://icon.png"
 
 [input]

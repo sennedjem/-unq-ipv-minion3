@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CajaFinal.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Texturas/Gancho.png" type="Texture" id=14]
 [ext_resource path="res://Texturas/Saliente.png" type="Texture" id=15]
 [ext_resource path="res://Texturas/restart.png" type="Texture" id=16]
+[ext_resource path="res://Texturas/fondonegro.jpg" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 118.131, 4.19318 )
@@ -534,6 +535,12 @@ texture = ExtResource( 16 )
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="fondonegro" type="Sprite" parent="."]
+position = Vector2( 331.643, 447.305 )
+z_index = -16
+z_as_relative = false
+texture = ExtResource( 17 )
 [connection signal="personaje_entro" from="Caja Final" to="." method="_on_Caja_Final_personaje_entro"]
 [connection signal="personaje_salio" from="Caja Final" to="." method="_on_Caja_Final_personaje_salio"]
 [connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]

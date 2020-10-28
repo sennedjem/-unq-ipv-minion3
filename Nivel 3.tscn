@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Personajes/Personaje.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Texturas/Limit vertical.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Nivel 3.gd" type="Script" id=8]
 [ext_resource path="res://CajaFinal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Pwrup.png" type="Texture" id=10]
+[ext_resource path="res://Texturas/fondonegro.jpg" type="Texture" id=11]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/font.ttf"
@@ -946,6 +947,11 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( -63.496, 657.184 )
 shape = SubResource( 3 )
+
+[node name="fondonegro" type="Sprite" parent="."]
+position = Vector2( 438.25, 140.919 )
+z_index = -4
+texture = ExtResource( 11 )
 [connection signal="personaje_entro" from="Trampa/Caja Activa" to="." method="_on_Caja_Activa_personaje_entro"]
 [connection signal="personaje_salio" from="Trampa/Caja Activa" to="." method="_on_Caja_Activa_personaje_salio"]
 [connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]
