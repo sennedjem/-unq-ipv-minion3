@@ -9,6 +9,7 @@ var esta_en_final = false
 func _ready():
 	$"Trampa/Caja Activa/AnimatedSprite".play("fin")
 	$PersonajeJugable/Camera2D.limit_right = 1436
+	$MusicaFondo.play()
 	
 func _process(delta):
 	if (coins == 10):
@@ -20,6 +21,7 @@ func _process(delta):
 
 func _on_Coin_pj_entered():
 	coins += 1
+	$Coin.play()
 	$"Top Line/Coins".text = str(coins)
 
 
@@ -44,6 +46,9 @@ func _on_Area2D2_body_entered(body):
 
 func _on_CajaFinal_personaje_entro():
 	esta_en_final = true
+	if !$Success.playing:
+		$Success.play()
+		$MusicaFondo.stop()
 
 
 func _on_CajaFinal_personaje_salio():

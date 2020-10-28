@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Texturas/fondonegro.jpg" type="Texture" id=1]
 [ext_resource path="res://Personajes/Personaje.tscn" type="PackedScene" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://CajaFinal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Texturas/Limit vertical.png" type="Texture" id=12]
 [ext_resource path="res://Texturas/Limit horizontal.png" type="Texture" id=13]
+[ext_resource path="res://Sonidos/success.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sonidos/coins.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sonidos/musicadefondo.wav" type="AudioStream" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,17 +42,17 @@ extents = Vector2( 41.9907, 7.7272 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10.7926, 2.75391 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 284.807, 10 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 131.394, 7.11231 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=8]
 size = 18
 font_data = ExtResource( 9 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 568, 10 )
 
 [node name="Node2D" type="Node2D"]
@@ -436,7 +439,7 @@ texture = ExtResource( 12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedVerticalDerecha/Static2d"]
 position = Vector2( 1032.59, 282.471 )
 rotation = 1.5708
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="ParedVerticalIzquierda" type="Node" parent="."]
 
@@ -461,7 +464,7 @@ texture = ExtResource( 12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedVerticalIzquierda/Area2D"]
 position = Vector2( 1.94374, 439.225 )
 rotation = 1.5708
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="ParedHorizontalAlta" type="Node" parent="."]
 
@@ -525,7 +528,7 @@ margin_left = 8.0
 margin_top = 13.0
 margin_right = 162.0
 margin_bottom = 58.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "Pasos
 Restantes"
 __meta__ = {
@@ -537,7 +540,7 @@ margin_left = 168.224
 margin_top = 8.97968
 margin_right = 212.224
 margin_bottom = 29.9797
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "50"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -548,7 +551,7 @@ margin_left = 968.347
 margin_top = 23.0609
 margin_right = 1000.35
 margin_bottom = 44.0609
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -614,7 +617,17 @@ z_index = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
 position = Vector2( 490, 616 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+
+[node name="Success" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+
+[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+volume_db = -0.5
 [connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="timeout" from="KinematicBody2D2/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]

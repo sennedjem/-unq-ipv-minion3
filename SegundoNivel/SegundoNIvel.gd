@@ -11,6 +11,7 @@ var esta_en_final = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$CajaFinal/AnimatedSprite.play("ready")
+	$MusicaFondo.play()
 
 func _process(delta):
 	check_ending()
@@ -22,6 +23,7 @@ func _process(delta):
 
 func _on_Coin_pj_entered():
 	monedas = monedas + 1
+	$Coin.play()
 	$CanvasLayer/Monedas.text = str(monedas)
 
 
@@ -42,6 +44,9 @@ func _on_bottom_body_entered(body):
 
 func _on_CajaFinal_personaje_entro():
 	esta_en_final = true
+	if !$Success.playing:
+		$Success.play()
+		$MusicaFondo.stop()
 
 
 func _on_CajaFinal_personaje_salio():

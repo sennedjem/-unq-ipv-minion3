@@ -6,6 +6,9 @@ var seconds = 60
 var puede_avanzar = false
 var esta_en_final = false
 
+func _ready():
+	$MusicaFondo.play()
+
 func _process(delta):
 	check_distance_caja()
 	check_ending()
@@ -27,6 +30,7 @@ func check_distance_caja():
 
 func _on_Coin_pj_entered():
 	coins_collected += 1
+	$Coin.play()
 	$CanvasLayer/Coins.text = str(coins_collected)
 
 
@@ -49,6 +53,9 @@ func check_ending():
 
 func _on_Caja_Final_personaje_entro():
 	esta_en_final = true
+	if !$Success.playing:
+		$Success.play()
+		$MusicaFondo.stop()
 
 
 func _on_Caja_Final_personaje_salio():

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PantallaInicial/EscenaInicial.gd" type="Script" id=1]
 [ext_resource path="res://Texturas/fondoindustrial.jpg" type="Texture" id=2]
 [ext_resource path="res://fonts/font.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sonidos/musicaRandom.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 37
@@ -39,4 +40,7 @@ position = Vector2( 512.474, 301.751 )
 scale = Vector2( 0.569604, 0.543727 )
 z_index = -1
 texture = ExtResource( 2 )
+
+[node name="MusicaDeFondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 [connection signal="pressed" from="IniciarJuegoBoton" to="." method="_on_IniciarJuegoBoton_pressed"]
