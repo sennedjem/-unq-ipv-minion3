@@ -526,20 +526,18 @@ z_index = 3
 [node name="Pasos" type="Label" parent="CanvasLayer"]
 margin_left = 8.0
 margin_top = 13.0
-margin_right = 162.0
+margin_right = 37.0
 margin_bottom = 58.0
 custom_fonts/font = SubResource( 8 )
-text = "Pasos
-Restantes"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cantidad" type="Label" parent="CanvasLayer/Pasos"]
-margin_left = 168.224
-margin_top = 8.97968
-margin_right = 212.224
-margin_bottom = 29.9797
+margin_left = 16.224
+margin_top = 9.97968
+margin_right = 60.224
+margin_bottom = 30.9797
 custom_fonts/font = SubResource( 8 )
 text = "50"
 __meta__ = {
@@ -619,6 +617,9 @@ z_index = 2
 position = Vector2( 490, 616 )
 shape = SubResource( 9 )
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [node name="Coin" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
 
@@ -628,18 +629,18 @@ stream = ExtResource( 11 )
 [node name="MusicaFondo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 volume_db = -0.5
-[connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="timeout" from="KinematicBody2D2/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="KinematicBody2D5" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D5" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D5" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="timeout" from="KinematicBody2D5/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D3_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_Timer_timeout"]
 [connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_TimerBox3_timeout"]
-[connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D4_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_Timer_timeout"]
 [connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_TimerBox2_timeout"]
 [connection signal="pj_step" from="PersonajeJugable" to="." method="_on_PersonajeJugable_pj_step"]
@@ -656,4 +657,5 @@ volume_db = -0.5
 [connection signal="personaje_entro" from="CajaFinal" to="." method="_on_CajaFinal_personaje_entro"]
 [connection signal="personaje_salio" from="CajaFinal" to="." method="_on_CajaFinal_personaje_salio"]
 [connection signal="body_entered" from="bottom" to="." method="_on_bottom_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="MusicaFondo" to="." method="_on_MusicaFondo_finished"]

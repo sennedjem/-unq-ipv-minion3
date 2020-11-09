@@ -5,13 +5,14 @@ extends Node2D
 # var a = 2
 # var b = "text"
 var monedas = 0
-var pasos_restantes = 50
+var tiempo = 50
 var esta_en_final = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$CajaFinal/AnimatedSprite.play("ready")
 	$MusicaFondo.play()
+	$Timer.start()
 
 func _process(delta):
 	check_ending()
@@ -28,11 +29,12 @@ func _on_Coin_pj_entered():
 
 
 func _on_PersonajeJugable_pj_step():
-	if pasos_restantes > 0:
-		pasos_restantes = pasos_restantes-1
-		$CanvasLayer/Pasos/Cantidad.text = str(pasos_restantes)
-	else:
-		game_over()	
+	#if pasos_restantes > 0:
+	#	pasos_restantes = pasos_restantes-1
+	#	$CanvasLayer/Pasos/Cantidad.text = str(pasos_restantes)
+	#else:
+	#	game_over()	
+	pass
 
 func game_over():
 	get_tree().change_scene("res://Resources/GameOver.tscn")
@@ -59,3 +61,12 @@ func check_ending():
 
 func _on_MusicaFondo_finished():
 	$MusicaFondo.play()
+
+
+func _on_Timer_timeout():
+	if(tiempo>1):
+		tiempo = tiempo -1
+		$CanvasLayer/Pasos/Cantidad.text = str(tiempo)
+	else:
+		game_over()	
+	pass # Replace with function body.
