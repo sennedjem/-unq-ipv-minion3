@@ -42,11 +42,12 @@ func _on_Area2D2_body_entered(body):
 		get_tree().change_scene("res://Resources/GameOver.tscn")
 
 func _on_CajaFinal_personaje_entro():
-	puede_avanzar = true
-	esta_en_final = true
-	if !$Success.playing:
-		$Success.play()
-		$MusicaFondo.stop()
+	get_tree().change_scene("res://Resources/JuegoFinalizado.tscn")
+	#puede_avanzar = true
+	#esta_en_final = true
+	#if !$Success.playing:
+	#	$Success.play()
+	#	$MusicaFondo.stop()
 
 
 func _on_CajaFinal_personaje_salio():

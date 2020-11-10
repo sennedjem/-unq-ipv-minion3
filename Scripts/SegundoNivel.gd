@@ -52,10 +52,11 @@ func check_ending():
 
 
 func _on_Caja_Final_personaje_entro():
-	esta_en_final = true
-	if !$Success.playing:
-		$Success.play()
-		$MusicaFondo.stop()
+	get_tree().change_scene("res://Niveles/TercerNivel.tscn")
+	#esta_en_final = true
+	#if !$Success.playing:
+	#	$Success.play()
+	#	$MusicaFondo.stop()
 
 
 func _on_Caja_Final_personaje_salio():

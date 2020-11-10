@@ -13,11 +13,11 @@ var velocity = Vector2()
 var jumping = false
 var jumpings = 0
 var pasos = 0
+var caminando = false
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
 	get_input()
-	
 	velocity.y += gravity * delta
 	if jumping:
 		$AnimatedSprite.play("salto")
@@ -36,19 +36,23 @@ func get_input():
 
 	if jump and is_on_floor():
 		jump(jump_speed)
+		caminando = true
 	if right:
 		$AnimatedSprite.play("camina")
 		pasos = pasos + 0.1
 		contar_paso()
 		velocity.x += run_speed
 		$AnimatedSprite.flip_h = false
+		caminando = true
 	elif left:
 		pasos = pasos + 0.1
 		contar_paso()
 		$AnimatedSprite.play("camina")
 		$AnimatedSprite.flip_h = true
 		velocity.x -= run_speed	
+		caminando = true
 	else:
+		caminando = false
 		$AnimatedSprite.stop()	
 
 func jump(jump_speed):

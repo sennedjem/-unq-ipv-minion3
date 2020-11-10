@@ -522,6 +522,7 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 499.667
 margin_top = 10.1133
 margin_right = 515.667

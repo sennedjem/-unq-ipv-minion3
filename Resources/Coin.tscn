@@ -9,7 +9,6 @@
 [ext_resource path="res://Texturas/Coin6.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Coin.gd" type="Script" id=8]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 3 ) ],
@@ -28,6 +27,7 @@ script = ExtResource( 8 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -1
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
