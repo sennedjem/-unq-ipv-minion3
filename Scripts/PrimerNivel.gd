@@ -16,7 +16,6 @@ func _ready():
 
 func _process(delta):
 	check_ending()
-	print($PersonajeJugable.caminando)
 	if $PersonajeJugable.caminando:
 		_retomar_juego()
 	else:

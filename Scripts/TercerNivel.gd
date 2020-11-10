@@ -11,6 +11,55 @@ func _ready():
 	$PersonajeJugable/Camera2D.limit_right = 1436
 	$MusicaFondo.play()
 	
+func _frenar_juego():
+	if $Monedas/Coin/AnimatedSprite:
+		$Monedas/Coin/AnimatedSprite.stop()
+	if $Monedas/Coin2/AnimatedSprite:
+		$Monedas/Coin2/AnimatedSprite.stop()
+	if $Monedas/Coin3/AnimatedSprite:
+		$Monedas/Coin3/AnimatedSprite.stop()
+	if $Monedas/Coin4/AnimatedSprite:
+		$Monedas/Coin4/AnimatedSprite.stop()
+	if $Monedas/Coin5/AnimatedSprite:
+		$Monedas/Coin5/AnimatedSprite.stop()
+	if $Monedas/Coin6/AnimatedSprite:
+		$Monedas/Coin6/AnimatedSprite.stop()
+	if $Monedas/Coin7/AnimatedSprite:
+		$Monedas/Coin7/AnimatedSprite.stop()
+	if $Monedas/Coin8/AnimatedSprite:
+		$Monedas/Coin8/AnimatedSprite.stop()
+	if $Monedas/Coin9/AnimatedSprite:
+		$Monedas/Coin9/AnimatedSprite.stop()
+	if $Monedas/Coin10/AnimatedSprite:
+		$Monedas/Coin10/AnimatedSprite.stop()
+	$Timer.stop()
+	$"CajaFinal/AnimatedSprite".stop()
+
+func _retomar_juego():
+	if $Monedas/Coin/AnimatedSprite:
+		$Monedas/Coin/AnimatedSprite.play()
+	if $Monedas/Coin2/AnimatedSprite:
+		$Monedas/Coin2/AnimatedSprite.play()
+	if $Monedas/Coin3/AnimatedSprite:
+		$Monedas/Coin3/AnimatedSprite.play()
+	if $Monedas/Coin4/AnimatedSprite:
+		$Monedas/Coin4/AnimatedSprite.play()
+	if $Monedas/Coin5/AnimatedSprite:
+		$Monedas/Coin5/AnimatedSprite.play()
+	if $Monedas/Coin6/AnimatedSprite:
+		$Monedas/Coin6/AnimatedSprite.play()
+	if $Monedas/Coin7/AnimatedSprite:
+		$Monedas/Coin7/AnimatedSprite.play()
+	if $Monedas/Coin8/AnimatedSprite:
+		$Monedas/Coin8/AnimatedSprite.play()
+	if $Monedas/Coin9/AnimatedSprite:
+		$Monedas/Coin9/AnimatedSprite.play()
+	if $Monedas/Coin10/AnimatedSprite:
+		$Monedas/Coin10/AnimatedSprite.play()
+	if $Timer.is_stopped():
+		$Timer.start()
+	$"CajaFinal/AnimatedSprite".play()		
+	
 func _process(delta):
 	if (coins == 10):
 		puede_avanzar = true
@@ -18,6 +67,10 @@ func _process(delta):
 	elif (coins == 5):
 		$CajaFinal/AnimatedSprite.play("mitad")
 	check_ending()
+	if $PersonajeJugable.caminando:
+		_retomar_juego()
+	else:
+		_frenar_juego()
 
 func _on_Coin_pj_entered():
 	coins += 1
@@ -61,8 +114,9 @@ func check_ending():
 
 
 func _on_Caja_Activa_personaje_entro():
-	esta_en_final = true
-	puede_avanzar = true
+	get_tree().change_scene("res://Resources/JuegoFinalizado.tscn")
+	#esta_en_final = true
+	#puede_avanzar = true
 
 
 func _on_Caja_Activa_personaje_salio():
