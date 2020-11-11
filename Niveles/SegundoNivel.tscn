@@ -47,6 +47,50 @@ font_data = SubResource( 6 )
 [node name="Nivel 1" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="Monedas" type="Node2D" parent="."]
+
+[node name="Coin" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 170.663, 508.465 )
+
+[node name="Coin2" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 353.45, 488.734 )
+
+[node name="Coin3" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 548.376, 442.699 )
+
+[node name="Coin4" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 431.702, 413.332 )
+
+[node name="Coin5" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 291.259, 374.486 )
+
+[node name="Coin6" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 121.552, 333.962 )
+
+[node name="Coin7" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 283.467, 287.928 )
+
+[node name="Coin8" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 227.908, 287.928 )
+
+[node name="Coin9" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 440.62, 272.848 )
+
+[node name="Coin10" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 574.819, 257.767 )
+
+[node name="Coin11" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 690.501, 298.781 )
+
+[node name="Coin12" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 848.209, 350.719 )
+
+[node name="Coin13" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 1035.96, 414.126 )
+
+[node name="Coin14" parent="Monedas" instance=ExtResource( 1 )]
+position = Vector2( 469.987, 482.203 )
+
 [node name="Techo" type="Node2D" parent="."]
 
 [node name="Limit horizontal" type="Sprite" parent="Techo"]
@@ -99,50 +143,6 @@ texture = ExtResource( 6 )
 
 [node name="Caja Final" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1124.09, 480.98 )
-
-[node name="Monedas" type="Node2D" parent="."]
-
-[node name="Coin" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 170.663, 508.465 )
-
-[node name="Coin2" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 353.45, 488.734 )
-
-[node name="Coin3" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 548.376, 442.699 )
-
-[node name="Coin4" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 431.702, 413.332 )
-
-[node name="Coin5" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 291.259, 374.486 )
-
-[node name="Coin6" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 121.552, 333.962 )
-
-[node name="Coin7" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 283.467, 287.928 )
-
-[node name="Coin8" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 227.908, 287.928 )
-
-[node name="Coin9" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 440.62, 272.848 )
-
-[node name="Coin10" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 574.819, 257.767 )
-
-[node name="Coin11" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 690.501, 298.781 )
-
-[node name="Coin12" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 848.209, 350.719 )
-
-[node name="Coin13" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 1035.96, 414.126 )
-
-[node name="Coin14" parent="Monedas" instance=ExtResource( 1 )]
-position = Vector2( 469.987, 482.203 )
 
 [node name="PersonajeJugable" parent="." instance=ExtResource( 3 )]
 position = Vector2( 86.7137, 500.828 )
@@ -555,8 +555,36 @@ volume_db = -0.5
 
 [node name="Coin" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 18 )
-[connection signal="personaje_entro" from="Caja Final" to="." method="_on_Caja_Final_personaje_entro"]
-[connection signal="personaje_salio" from="Caja Final" to="." method="_on_Caja_Final_personaje_salio"]
+[connection signal="juego_activo" from="." to="Caja Final" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin2" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin3" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin4" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin5" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin6" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin7" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin8" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin10" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin11" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin12" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin13" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin14" method="_on_Level_juego_activo"]
+[connection signal="juego_frenado" from="." to="Caja Final" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin2" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin3" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin4" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin5" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin6" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin7" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin8" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin9" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin10" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin11" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin12" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin13" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin14" method="_on_Level_juego_frenado"]
 [connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin2" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin3" to="." method="_on_Coin_pj_entered"]
@@ -571,6 +599,8 @@ stream = ExtResource( 18 )
 [connection signal="pj_entered" from="Monedas/Coin12" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin13" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin14" to="." method="_on_Coin_pj_entered"]
+[connection signal="personaje_entro" from="Caja Final" to="." method="_on_Caja_Final_personaje_entro"]
+[connection signal="personaje_salio" from="Caja Final" to="." method="_on_Caja_Final_personaje_salio"]
 [connection signal="body_entered" from="Bordes y Plataformas/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

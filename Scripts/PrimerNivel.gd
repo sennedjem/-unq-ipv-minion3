@@ -1,9 +1,8 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal juego_frenado()
+signal juego_activo()
 var monedas = 0
 var tiempo = 50
 var esta_en_final = false
@@ -20,9 +19,6 @@ func _process(delta):
 		_retomar_juego()
 	else:
 		_frenar_juego()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_Coin_pj_entered():
@@ -31,60 +27,15 @@ func _on_Coin_pj_entered():
 	$CanvasLayer/Monedas.text = str(monedas)
 
 func _frenar_juego():
-	if $Monedas/Coin/AnimatedSprite:
-		$Monedas/Coin/AnimatedSprite.stop()
-	if $Monedas/Coin2/AnimatedSprite:
-		$Monedas/Coin2/AnimatedSprite.stop()
-	if $Monedas/Coin3/AnimatedSprite:
-		$Monedas/Coin3/AnimatedSprite.stop()
-	if $Monedas/Coin4/AnimatedSprite:
-		$Monedas/Coin4/AnimatedSprite.stop()
-	if $Monedas/Coin5/AnimatedSprite:
-		$Monedas/Coin5/AnimatedSprite.stop()
-	if $Monedas/Coin6/AnimatedSprite:
-		$Monedas/Coin6/AnimatedSprite.stop()
-	if $Monedas/Coin7/AnimatedSprite:
-		$Monedas/Coin7/AnimatedSprite.stop()
-	if $Monedas/Coin8/AnimatedSprite:
-		$Monedas/Coin8/AnimatedSprite.stop()
-	if $Monedas/Coin9/AnimatedSprite:
-		$Monedas/Coin9/AnimatedSprite.stop()
-	if $Monedas/Coin10/AnimatedSprite:
-		$Monedas/Coin10/AnimatedSprite.stop()	
+	emit_signal("juego_frenado")
 	$Timer.stop()
-	$CajaFinal/AnimatedSprite.stop()
 
 func _retomar_juego():
-	if $Monedas/Coin/AnimatedSprite:
-		$Monedas/Coin/AnimatedSprite.play()
-	if $Monedas/Coin2/AnimatedSprite:
-		$Monedas/Coin2/AnimatedSprite.play()
-	if $Monedas/Coin3/AnimatedSprite:
-		$Monedas/Coin3/AnimatedSprite.play()
-	if $Monedas/Coin4/AnimatedSprite:
-		$Monedas/Coin4/AnimatedSprite.play()
-	if $Monedas/Coin5/AnimatedSprite:
-		$Monedas/Coin5/AnimatedSprite.play()
-	if $Monedas/Coin6/AnimatedSprite:
-		$Monedas/Coin6/AnimatedSprite.play()
-	if $Monedas/Coin7/AnimatedSprite:
-		$Monedas/Coin7/AnimatedSprite.play()
-	if $Monedas/Coin8/AnimatedSprite:
-		$Monedas/Coin8/AnimatedSprite.play()
-	if $Monedas/Coin9/AnimatedSprite:
-		$Monedas/Coin9/AnimatedSprite.play()
-	if $Monedas/Coin10/AnimatedSprite:
-		$Monedas/Coin10/AnimatedSprite.play()	
+	emit_signal("juego_activo")
 	if $Timer.is_stopped():
 		$Timer.start()
-	$CajaFinal/AnimatedSprite.play()
 
 func _on_PersonajeJugable_pj_step():
-	#if pasos_restantes > 0:
-	#	pasos_restantes = pasos_restantes-1
-	#	$CanvasLayer/Pasos/Cantidad.text = str(pasos_restantes)
-	#else:
-	#	game_over()	
 	pass
 
 func game_over():

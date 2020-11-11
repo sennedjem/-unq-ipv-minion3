@@ -28,6 +28,38 @@ extents = Vector2( 1163.19, 10 )
 [node name="Nivel 3" type="Node2D"]
 script = ExtResource( 14 )
 
+[node name="Monedas" type="Node2D" parent="."]
+
+[node name="Coin" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 103.099, 563.005 )
+
+[node name="Coin2" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 190.641, 468.388 )
+
+[node name="Coin3" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 253.574, 440.104 )
+
+[node name="Coin4" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 204.783, 338.988 )
+
+[node name="Coin5" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 440.25, 392.021 )
+
+[node name="Coin6" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 648.139, 275.348 )
+
+[node name="Coin10" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 821.812, 386.725 )
+
+[node name="Coin7" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 673.956, 360.655 )
+
+[node name="Coin8" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 781.312, 550.163 )
+
+[node name="Coin9" parent="Monedas" instance=ExtResource( 2 )]
+position = Vector2( 361.511, 527.714 )
+
 [node name="PersonajeJugable" parent="." instance=ExtResource( 3 )]
 position = Vector2( 57.4489, 543.561 )
 z_index = 3
@@ -874,38 +906,6 @@ polygon = PoolVector2Array( 1158.54, 576.964, 1384.54, 574.964, 1382.54, 586.964
 [node name="Caja Activa" parent="Trampa" instance=ExtResource( 1 )]
 position = Vector2( 1235.2, 518.128 )
 
-[node name="Monedas" type="Node2D" parent="."]
-
-[node name="Coin" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 103.099, 563.005 )
-
-[node name="Coin2" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 190.641, 468.388 )
-
-[node name="Coin3" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 253.574, 440.104 )
-
-[node name="Coin4" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 204.783, 338.988 )
-
-[node name="Coin5" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 440.25, 392.021 )
-
-[node name="Coin6" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 648.139, 275.348 )
-
-[node name="Coin10" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 821.812, 386.725 )
-
-[node name="Coin7" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 673.956, 360.655 )
-
-[node name="Coin8" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 781.312, 550.163 )
-
-[node name="Coin9" parent="Monedas" instance=ExtResource( 2 )]
-position = Vector2( 361.511, 527.714 )
-
 [node name="CajaFinal" parent="." instance=ExtResource( 1 )]
 position = Vector2( 858.377, 347.133 )
 
@@ -965,8 +965,30 @@ volume_db = -0.5
 
 [node name="Success" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
-[connection signal="personaje_entro" from="Trampa/Caja Activa" to="." method="_on_Caja_Activa_personaje_entro"]
-[connection signal="personaje_salio" from="Trampa/Caja Activa" to="." method="_on_Caja_Activa_personaje_salio"]
+[connection signal="juego_activo" from="." to="Monedas/Coin3" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Trampa/Caja Activa" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin2" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin5" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin8" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin10" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin4" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin6" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin7" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="CajaFinal" method="_on_Level_juego_activo"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin3" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Trampa/Caja Activa" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin2" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin5" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin8" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin10" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin4" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin6" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin7" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin9" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="CajaFinal" method="_on_Level_juego_frenado"]
 [connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin2" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin3" to="." method="_on_Coin_pj_entered"]
@@ -977,6 +999,8 @@ stream = ExtResource( 8 )
 [connection signal="pj_entered" from="Monedas/Coin7" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin8" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin9" to="." method="_on_Coin_pj_entered"]
+[connection signal="personaje_entro" from="Trampa/Caja Activa" to="." method="_on_Caja_Activa_personaje_entro"]
+[connection signal="personaje_salio" from="Trampa/Caja Activa" to="." method="_on_Caja_Activa_personaje_salio"]
 [connection signal="personaje_entro" from="CajaFinal" to="." method="_on_CajaFinal_personaje_entro"]
 [connection signal="personaje_salio" from="CajaFinal" to="." method="_on_CajaFinal_personaje_salio"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

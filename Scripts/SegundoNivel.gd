@@ -5,6 +5,8 @@ var coins_collected = 0
 var seconds = 60
 var puede_avanzar = false
 var esta_en_final = false
+signal juego_frenado()
+signal juego_activo()
 
 func _ready():
 	$MusicaFondo.play()
@@ -23,69 +25,13 @@ func _process(delta):
 		_frenar_juego()
 		
 func _frenar_juego():
-	if $Monedas/Coin/AnimatedSprite:
-		$Monedas/Coin/AnimatedSprite.stop()
-	if $Monedas/Coin2/AnimatedSprite:
-		$Monedas/Coin2/AnimatedSprite.stop()
-	if $Monedas/Coin3/AnimatedSprite:
-		$Monedas/Coin3/AnimatedSprite.stop()
-	if $Monedas/Coin4/AnimatedSprite:
-		$Monedas/Coin4/AnimatedSprite.stop()
-	if $Monedas/Coin5/AnimatedSprite:
-		$Monedas/Coin5/AnimatedSprite.stop()
-	if $Monedas/Coin6/AnimatedSprite:
-		$Monedas/Coin6/AnimatedSprite.stop()
-	if $Monedas/Coin7/AnimatedSprite:
-		$Monedas/Coin7/AnimatedSprite.stop()
-	if $Monedas/Coin8/AnimatedSprite:
-		$Monedas/Coin8/AnimatedSprite.stop()
-	if $Monedas/Coin9/AnimatedSprite:
-		$Monedas/Coin9/AnimatedSprite.stop()
-	if $Monedas/Coin10/AnimatedSprite:
-		$Monedas/Coin10/AnimatedSprite.stop()
-	if $Monedas/Coin11/AnimatedSprite:
-		$Monedas/Coin11/AnimatedSprite.stop()
-	if $Monedas/Coin12/AnimatedSprite:
-		$Monedas/Coin12/AnimatedSprite.stop()
-	if $Monedas/Coin13/AnimatedSprite:
-		$Monedas/Coin13/AnimatedSprite.stop()
-	if $Monedas/Coin14/AnimatedSprite:
-		$Monedas/Coin14/AnimatedSprite.stop()					
+	emit_signal("juego_frenado")			
 	$Timer.stop()
-	$"Caja Final/AnimatedSprite".stop()
 
 func _retomar_juego():
-	if $Monedas/Coin/AnimatedSprite:
-		$Monedas/Coin/AnimatedSprite.play()
-	if $Monedas/Coin2/AnimatedSprite:
-		$Monedas/Coin2/AnimatedSprite.play()
-	if $Monedas/Coin3/AnimatedSprite:
-		$Monedas/Coin3/AnimatedSprite.play()
-	if $Monedas/Coin4/AnimatedSprite:
-		$Monedas/Coin4/AnimatedSprite.play()
-	if $Monedas/Coin5/AnimatedSprite:
-		$Monedas/Coin5/AnimatedSprite.play()
-	if $Monedas/Coin6/AnimatedSprite:
-		$Monedas/Coin6/AnimatedSprite.play()
-	if $Monedas/Coin7/AnimatedSprite:
-		$Monedas/Coin7/AnimatedSprite.play()
-	if $Monedas/Coin8/AnimatedSprite:
-		$Monedas/Coin8/AnimatedSprite.play()
-	if $Monedas/Coin9/AnimatedSprite:
-		$Monedas/Coin9/AnimatedSprite.play()
-	if $Monedas/Coin10/AnimatedSprite:
-		$Monedas/Coin10/AnimatedSprite.play()	
-	if $Monedas/Coin11/AnimatedSprite:
-		$Monedas/Coin11/AnimatedSprite.stop()
-	if $Monedas/Coin12/AnimatedSprite:
-		$Monedas/Coin12/AnimatedSprite.stop()
-	if $Monedas/Coin13/AnimatedSprite:
-		$Monedas/Coin13/AnimatedSprite.stop()
-	if $Monedas/Coin14/AnimatedSprite:
-		$Monedas/Coin14/AnimatedSprite.stop()		
+	emit_signal("juego_activo")	
 	if $Timer.is_stopped():
-		$Timer.start()
-	$"Caja Final/AnimatedSprite".play()			
+		$Timer.start()		
 
 func check_distance_caja():
 	var distanceCajaPj = $PersonajeJugable.position.distance_to($"Bordes y Plataformas/Techo con gancho/Caja".position)
@@ -125,10 +71,6 @@ func check_ending():
 func _on_Caja_Final_personaje_entro():
 	if(puede_avanzar):
 		get_tree().change_scene("res://Niveles/TercerNivel.tscn")
-	#esta_en_final = true
-	#if !$Success.playing:
-	#	$Success.play()
-	#	$MusicaFondo.stop()
 
 
 func _on_Caja_Final_personaje_salio():
