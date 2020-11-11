@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://fonts/font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Resources/Coin.tscn" type="PackedScene" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://Texturas/Plataforma que cae.png" type="Texture" id=14]
 [ext_resource path="res://Texturas/Limit vertical.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/PrimerNivel.gd" type="Script" id=16]
+[ext_resource path="res://Texturas/clock4.png" type="Texture" id=17]
+[ext_resource path="res://Texturas/coin.png" type="Texture" id=18]
+[ext_resource path="res://Texturas/output-onlinepngtools.png" type="Texture" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -513,7 +516,7 @@ position = Vector2( 354.159, 7.89832 )
 texture = ExtResource( 7 )
 
 [node name="fondonegro" type="Sprite" parent="."]
-position = Vector2( 621.366, 429.471 )
+position = Vector2( 776.021, 417.618 )
 scale = Vector2( 0.624177, 0.620518 )
 texture = ExtResource( 9 )
 
@@ -524,20 +527,33 @@ z_index = 3
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Pasos" type="Label" parent="CanvasLayer"]
-margin_left = 8.0
-margin_top = 13.0
-margin_right = 37.0
-margin_bottom = 58.0
+margin_left = 13.0
+margin_top = 11.0
+margin_right = 45.0
+margin_bottom = 56.0
 custom_fonts/font = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="clock" type="Sprite" parent="CanvasLayer/Pasos"]
+position = Vector2( 11.1943, 20.9994 )
+scale = Vector2( 0.0605542, 0.0620826 )
+texture = ExtResource( 19 )
+
+[node name="clock4" type="Sprite" parent="CanvasLayer/Pasos"]
+visible = false
+show_behind_parent = true
+light_mask = -2147483637
+position = Vector2( 10.9416, 20.9262 )
+scale = Vector2( 0.0605542, 0.0620826 )
+texture = ExtResource( 17 )
+
 [node name="Cantidad" type="Label" parent="CanvasLayer/Pasos"]
-margin_left = 16.224
-margin_top = 9.97968
-margin_right = 60.224
-margin_bottom = 30.9797
+margin_left = 26.0
+margin_top = 9.0
+margin_right = 58.0
+margin_bottom = 30.0
 custom_fonts/font = SubResource( 8 )
 text = "50"
 __meta__ = {
@@ -554,6 +570,11 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="coin" type="Sprite" parent="CanvasLayer/Monedas"]
+position = Vector2( -22.5396, 11.4802 )
+scale = Vector2( 0.0703034, 0.057878 )
+texture = ExtResource( 18 )
 
 [node name="Monedas" type="Node2D" parent="."]
 z_index = 2
@@ -629,28 +650,28 @@ stream = ExtResource( 11 )
 [node name="MusicaFondo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 volume_db = -0.5
-[connection signal="juego_activo" from="." to="Monedas/Coin4" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin2" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin3" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin6" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin5" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin4" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin3" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin2" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin7" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin8" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin6" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin10" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="CajaFinal" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin8" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin7" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin4" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin2" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin3" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin6" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin5" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin4" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin3" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin2" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin7" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin8" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin6" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin9" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin10" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="CajaFinal" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin8" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin7" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin9" method="_on_Level_juego_frenado"]
 [connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="timeout" from="KinematicBody2D2/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
