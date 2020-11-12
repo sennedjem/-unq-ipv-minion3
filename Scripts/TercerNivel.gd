@@ -15,10 +15,16 @@ func _ready():
 	
 func _frenar_juego():
 	emit_signal("juego_frenado")
+	$"Top Line/Time/clock4".visible = false
+	$"Top Line/Time/clock".visible = true
+	$"Top Line/Time".modulate = Color(1, 1, 1) 	
 	$Timer.stop()
 
 func _retomar_juego():
 	emit_signal("juego_activo")
+	$"Top Line/Time/clock4".visible = true
+	$"Top Line/Time/clock".visible = false
+	$"Top Line/Time".modulate = Color(1, 0, 0) 
 	if $Timer.is_stopped():
 		$Timer.start()
 	

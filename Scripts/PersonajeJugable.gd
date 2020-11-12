@@ -103,3 +103,12 @@ func salto_normal(caja,timer):
 	caja.play('salto')
 	jump(-700)
 	timer.start()
+
+
+func _on_Caja_body_entered(body):
+	print(body)
+	salto_normal($"../Caja/AnimatedSprite",$"../Caja/CajaTimer")
+
+
+func _on_CajaTimer_timeout():
+	$"../Caja/AnimatedSprite".play('normal')

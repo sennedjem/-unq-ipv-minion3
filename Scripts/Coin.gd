@@ -13,4 +13,3 @@ func _on_Level_juego_activo():
 
 func _on_Level_juego_frenado():
 	$AnimatedSprite.stop()
-	pass # Replace with function body.

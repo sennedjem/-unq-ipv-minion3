@@ -16,3 +16,5 @@ func _on_Level_juego_frenado():
 
 func _on_Level_juego_activo():
 	$AnimatedSprite.play()
+
+

@@ -25,11 +25,17 @@ func _process(delta):
 		_frenar_juego()
 		
 func _frenar_juego():
-	emit_signal("juego_frenado")			
+	emit_signal("juego_frenado")	
+	$CanvasLayer/Timer/clock4.visible = false
+	$CanvasLayer/Timer/clock.visible = true
+	$CanvasLayer/Timer.modulate = Color(1, 1, 1) 		
 	$Timer.stop()
 
 func _retomar_juego():
 	emit_signal("juego_activo")	
+	$CanvasLayer/Timer/clock4.visible = true
+	$CanvasLayer/Timer/clock.visible = false
+	$CanvasLayer/Timer.modulate = Color(1, 0, 0) 	
 	if $Timer.is_stopped():
 		$Timer.start()		
 
