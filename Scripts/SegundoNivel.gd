@@ -62,6 +62,7 @@ func _on_Timer_timeout():
 		seconds -= 1
 		$CanvasLayer/Timer.text = str(seconds)
 	else:
+		ChangeScene.lastLevel = "res://Niveles/SegundoNivel.tscn"
 		get_tree().change_scene("res://Resources/GameOver.tscn")
 
 
@@ -85,6 +86,7 @@ func _on_Caja_Final_personaje_salio():
 
 func _on_Area2D_body_entered(body):
 	if (body.name == "PersonajeJugable"):
+		ChangeScene.lastLevel = "res://Niveles/SegundoNivel.tscn"
 		get_tree().change_scene("res://Resources/GameOver.tscn")
 
 

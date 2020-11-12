@@ -56,10 +56,12 @@ func _on_Timer_timeout():
 		seconds -= 1
 		$"Top Line/Time".text = str(seconds)
 	else:
+		ChangeScene.lastLevel = "res://Niveles/TercerNivel.tscn"
 		get_tree().change_scene("res://Resources/GameOver.tscn")
 
 func _on_Area2D2_body_entered(body):
 	if (body.name == "PersonajeJugable"):
+		ChangeScene.lastLevel = "res://Niveles/TercerNivel.tscn"
 		get_tree().change_scene("res://Resources/GameOver.tscn")
 
 func _on_CajaFinal_personaje_entro():

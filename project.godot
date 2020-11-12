@@ -19,6 +19,10 @@ config/name="Unq-ipv-minion 3"
 run/main_scene="res://Resources/EscenaInicial.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+ChangeScene="*res://Scripts/ChangeScene.gd"
+
 [input]
 
 ui_accept={

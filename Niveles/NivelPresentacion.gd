@@ -34,3 +34,9 @@ func check_distance_caja():
 
 func _on_CajaFinal_personaje_entro():
 	get_tree().change_scene("res://Niveles/PrimerNivel.tscn")
+
+
+func _on_Area2D_body_entered(body):
+	if (body.name == "PersonajeJugable"):
+		ChangeScene.lastLevel = "res://Niveles/NivelPresentacion.tscn"
+		get_tree().change_scene("res://Resources/GameOver.tscn")

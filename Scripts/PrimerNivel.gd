@@ -45,6 +45,7 @@ func _on_PersonajeJugable_pj_step():
 	pass
 
 func game_over():
+	ChangeScene.lastLevel = "res://Niveles/PrimerNivel.tscn"
 	get_tree().change_scene("res://Resources/GameOver.tscn")
 
 
