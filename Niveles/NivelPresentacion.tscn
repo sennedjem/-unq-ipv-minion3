@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Texturas/plataforma1.png" type="Texture" id=1]
 [ext_resource path="res://Texturas/Plataforma que cae.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Texturas/Cadena.png" type="Texture" id=12]
 [ext_resource path="res://Niveles/Caja.gd" type="Script" id=13]
 [ext_resource path="res://Texturas/fondonegro.jpg" type="Texture" id=14]
+[ext_resource path="res://Resources/EnemigoRojo.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41.7128, 10 )
@@ -48,6 +49,9 @@ extents = Vector2( 645.455, 10 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 8 )
+
+[node name="EnemigoRojo" parent="." instance=ExtResource( 15 )]
+position = Vector2( 358.735, 477.503 )
 
 [node name="PersonajeJugable" parent="." instance=ExtResource( 4 )]
 position = Vector2( 149.554, 383.051 )
@@ -158,8 +162,10 @@ polygon = PoolVector2Array( -7.21054, -5.2149, -7.21054, 9.08032, 8.34607, 9.080
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 554.139, 614.72 )
 shape = SubResource( 7 )
+[connection signal="juego_activo" from="." to="EnemigoRojo" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Coin" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="CajaFinal" method="_on_Level_juego_activo"]
+[connection signal="juego_frenado" from="." to="EnemigoRojo" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Coin" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="CajaFinal" method="_on_Level_juego_frenado"]
 [connection signal="personaje_entro" from="CajaFinal" to="." method="_on_CajaFinal_personaje_entro"]
