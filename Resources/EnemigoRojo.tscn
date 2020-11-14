@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Texturas/redenemy1.png" type="Texture" id=1]
 [ext_resource path="res://Texturas/redenemy2.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://Texturas/redenemy5.png" type="Texture" id=5]
 [ext_resource path="res://Texturas/redenemy6.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/EnemigoRojo.gd" type="Script" id=7]
+[ext_resource path="res://Texturas/redenemyidle5.png" type="Texture" id=8]
+[ext_resource path="res://Texturas/redenemyidle1.png" type="Texture" id=9]
+[ext_resource path="res://Texturas/redenemyidle2.png" type="Texture" id=10]
+[ext_resource path="res://Texturas/redenemyidle4.png" type="Texture" id=11]
+[ext_resource path="res://Texturas/redenemyidle3.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,6 +24,11 @@ animations = [ {
 "loop": true,
 "name": "estatico",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "ocioso",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -29,7 +39,8 @@ script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "estatico"
+animation = "ocioso"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

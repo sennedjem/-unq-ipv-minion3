@@ -50,9 +50,12 @@ func _process(delta):
 				$Timer.start(secs)
 		velocity.x -= run_speed	
 	velocity.y += gravity * delta
-	if active&&!waiting:
-		velocity = move_and_slide(velocity,Vector2(0, -1))
-		$AnimatedSprite.play("correr")
+	if active:
+		if(!waiting):
+			velocity = move_and_slide(velocity,Vector2(0, -1))
+			$AnimatedSprite.play("correr")
+		else:
+			$AnimatedSprite.play("ocioso")
 	else:
 		$AnimatedSprite.play("estatico")
 
