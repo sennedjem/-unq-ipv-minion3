@@ -20,3 +20,7 @@ func _ready():
 
 func _on_IniciarJuegoBoton_pressed():
 	 get_tree().change_scene("res://Niveles/NivelPresentacion.tscn")
+
+
+func _on_AyudaBoton_pressed():
+	 get_tree().change_scene("res://Resources/Ayuda.tscn")

@@ -12,6 +12,7 @@ func _ready():
 	$"Trampa/Caja Activa/AnimatedSprite".play("fin")
 	$PersonajeJugable/Camera2D.limit_right = 1436
 	$MusicaFondo.play()
+	$"Top Line/Time".text = str(seconds)
 	
 func _frenar_juego():
 	emit_signal("juego_frenado")
