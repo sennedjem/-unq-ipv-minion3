@@ -16,9 +16,17 @@ var velocity = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite.flip_h = true
 	$Timer.autostart = false
 	rng.randomize()
+	var random = rng.randf()
+	if random>0.5:
+		print('mas')
+		direcction = "right"
+		$AnimatedSprite.flip_h = false
+	else: 
+		print('menos')
+		direcction ="left"	
+		$AnimatedSprite.flip_h = true
 	pass # Replace with function body.
 
 
