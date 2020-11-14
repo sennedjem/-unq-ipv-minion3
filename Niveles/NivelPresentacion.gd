@@ -25,7 +25,6 @@ func check_distance_caja():
 	var distanceCajaPj = $PersonajeJugable.global_position.distance_to($"Limit horizontal/RigidBody2D".global_position)
 	var distanceCajaPlataforma = $"Limit horizontal/RigidBody2D".global_position.distance_to($Plataformas/plataforma1/CollisionShape2D.global_position)
 	if(distanceCajaPj < 55):
-		print('caja_cayendo')
 		caja_cayendo = true
 	if($PersonajeJugable.caminando&&caja_cayendo):	
 		$"Limit horizontal/RigidBody2D".mode = RigidBody2D.MODE_RIGID

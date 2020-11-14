@@ -107,8 +107,8 @@ func salto_normal(caja,timer):
 
 func _on_Caja_body_entered(body):
 	print(body)
-	salto_normal($"../Caja/AnimatedSprite",$"../Caja/CajaTimer")
+	salto_normal($"../Plataformas/plataforma2/Caja/AnimatedSprite",$"../Plataformas/plataforma2/Caja/CajaTimer")
 
 
 func _on_CajaTimer_timeout():
-	$"../Caja/AnimatedSprite".play('normal')
+	$"../Plataformas/plataforma2/Caja/AnimatedSprite".play('normal')
