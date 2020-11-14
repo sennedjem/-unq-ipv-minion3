@@ -1,46 +1,75 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://fonts/font.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Texturas/fondoindustrial.jpg" type="Texture" id=2]
+[ext_resource path="res://Texturas/backgound.png" type="Texture" id=2]
 [ext_resource path="res://Sonidos/musicaRandom.wav" type="AudioStream" id=3]
 [ext_resource path="res://Scripts/EscenaInicial.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 37
+size = 52
 outline_size = 2
-outline_color = Color( 0.827451, 0.741176, 0.266667, 1 )
+outline_color = Color( 0.564706, 0.537255, 0.12549, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://fonts/font.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 23
+outline_color = Color( 0.761719, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 2 )
+
+[sub_resource type="StreamTexture" id=4]
 
 [node name="EscenaInicial" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Minion 3" type="Label" parent="."]
-margin_left = 397.333
-margin_top = 212.968
-margin_right = 602.333
-margin_bottom = 254.968
+margin_left = 227.333
+margin_top = 162.968
+margin_right = 833.333
+margin_bottom = 222.968
 custom_fonts/font = SubResource( 1 )
-text = "Minion 3"
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Fabric's escape"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="IniciarJuegoBoton" type="Button" parent="."]
-margin_left = 435.969
+margin_left = 417.969
 margin_top = 359.857
-margin_right = 548.969
-margin_bottom = 379.857
+margin_right = 578.969
+margin_bottom = 393.857
+rect_pivot_offset = Vector2( 773.223, -136.889 )
+custom_fonts/font = SubResource( 3 )
 text = "Iniciar juego"
+icon = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AyudaBoton" type="Button" parent="."]
+margin_left = 449.969
+margin_top = 435.857
+margin_right = 610.969
+margin_bottom = 469.857
+rect_pivot_offset = Vector2( 773.223, -136.889 )
+custom_fonts/font = SubResource( 3 )
+text = "Ayuda"
+icon = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="fondoindustrial" type="Sprite" parent="."]
-position = Vector2( 512.474, 301.751 )
-scale = Vector2( 0.569604, 0.543727 )
+position = Vector2( 512.474, 304.432 )
+scale = Vector2( 1.2796, 1.25048 )
 z_index = -1
 texture = ExtResource( 2 )
 
 [node name="MusicaDeFondo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 [connection signal="pressed" from="IniciarJuegoBoton" to="." method="_on_IniciarJuegoBoton_pressed"]
+[connection signal="pressed" from="AyudaBoton" to="." method="_on_AyudaBoton_pressed"]
