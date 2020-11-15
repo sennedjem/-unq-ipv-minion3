@@ -143,6 +143,7 @@ shape = SubResource( 6 )
 [node name="EnemigoRojo" parent="Plataformas/plataforma2" instance=ExtResource( 15 )]
 position = Vector2( 0, -7.531 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 1
 
 [node name="plataforma2" type="Sprite" parent="Plataformas/plataforma2"]
 texture = ExtResource( 1 )
@@ -227,13 +228,13 @@ scale = Vector2( 0.0528114, 0.048926 )
 texture = ExtResource( 18 )
 
 [node name="Timer" type="Timer" parent="."]
-[connection signal="juego_activo" from="." to="Plataformas/plataforma2/EnemigoRojo" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Coin" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/plataforma2/EnemigoRojo" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Plataformas/plataforma4/EnemigoRojo" method="_on_Level_juego_activo"]
-[connection signal="juego_frenado" from="." to="Plataformas/plataforma2/EnemigoRojo" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Coin" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Plataformas/plataforma2/EnemigoRojo" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Plataformas/plataforma4/EnemigoRojo" method="_on_Level_juego_frenado"]
 [connection signal="personaje_entro" from="Plataformas/plataforma4/CajaFinal" to="." method="_on_CajaFinal_personaje_entro"]
 [connection signal="body_entered" from="Plataformas/plataforma2/Caja" to="PersonajeJugable" method="_on_Caja_body_entered"]
