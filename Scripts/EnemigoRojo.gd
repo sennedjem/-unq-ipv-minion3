@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal kill_pj()
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,7 +12,8 @@ var rng = RandomNumberGenerator.new()
 var dead = false
 var active = false
 var waiting = false
-
+var personajeJugablePosition = Vector2()
+var disparando = false
 var velocity = Vector2()
 
 # Called when the node enters the scene tree for the first time.
@@ -32,12 +34,17 @@ func _ready():
 func _process(delta):
 	if!dead:
 		velocity.x = 0
+		if($"../../../PersonajeJugable".global_position.distance_to(self.global_position)<100):
+			if !disparando:
+				disparando = true
+				$Bala.visible = true
+				$Bala.player_position = $"../../../PersonajeJugable".global_position
+			$Bala.active = active	
 		if(direcction=="right"):
 			if(self.position.x>_get_top_right_()):
 				waiting = true
 				if($Timer.is_stopped()):
 					var secs = rng.randf()
-					print(secs)
 					$Timer.start(secs)
 			velocity.x += run_speed
 		else:
@@ -45,7 +52,6 @@ func _process(delta):
 				waiting = true
 				if($Timer.is_stopped()):
 					var secs = rng.randf()
-					print(secs)
 					$Timer.start(secs)
 			velocity.x -= run_speed	
 		velocity.y += gravity * delta
@@ -74,7 +80,6 @@ func _on_Level_juego_frenado():
 func _on_Timer_timeout():
 	waiting = false;
 	$Timer.stop()
-	print('timeout')
 	if direcction == "right":
 		direcction = "left"
 		$AnimatedSprite.flip_h = true
@@ -87,6 +92,8 @@ func _on_Area2D_body_entered(body):
 	print(body.name)
 	if(body.name == "PersonajeJugable"):
 		dead = true
+		$Bala.active = false
+		$Bala.visible = false
 		$AnimatedSprite.play("muerte")
 
 
@@ -95,3 +102,8 @@ func _on_AnimatedSprite_animation_finished():
 		$AnimatedSprite.stop()
 		$AnimatedSprite.set_animation("muerte")
 		$AnimatedSprite.set_frame(6)
+
+
+func _on_Bala_body_entered(body):
+	if(body.name == "PersonajeJugable"&& !dead):
+		emit_signal("kill_pj")

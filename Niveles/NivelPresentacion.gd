@@ -58,3 +58,8 @@ func _on_Coin_pj_entered():
 func _on_Timer_timeout():
 	tiempo = tiempo-1
 	$CanvasLayer/Time.text = str(tiempo)
+
+
+func _on_EnemigoRojo_kill_pj():
+	ChangeScene.lastLevel = "res://Niveles/NivelPresentacion.tscn"
+	get_tree().change_scene("res://Resources/GameOver.tscn")
