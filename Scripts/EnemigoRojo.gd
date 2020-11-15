@@ -24,6 +24,7 @@ func _ready():
 	if random>0.5:
 		direcction = "right"
 		$AnimatedSprite.flip_h = false
+		$Bala.position.x = -37
 	else: 
 		direcction ="left"	
 		$AnimatedSprite.flip_h = true
@@ -82,6 +83,7 @@ func _on_Timer_timeout():
 	$Timer.stop()
 	if direcction == "right":
 		direcction = "left"
+		$Bala.position.x = -37
 		$AnimatedSprite.flip_h = true
 	else:
 		direcction = "right"

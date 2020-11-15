@@ -23,7 +23,10 @@ func _process(delta):
 			self.visible = false
 			self.active = false
 			self.position.y = 0
-			self.position.x = 0
+			if($"..".direcction =="right"):
+				self.position.x = 0
+			else:
+				self.position.x = -37 	
 			
 
 
