@@ -662,6 +662,7 @@ script = ExtResource( 20 )
 [connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin8" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="CajaFinal" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D6/EnemigoRojo" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin4" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin5" method="_on_Level_juego_activo"]
