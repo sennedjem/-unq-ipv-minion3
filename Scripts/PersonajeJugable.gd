@@ -18,12 +18,13 @@ var caminando = false
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
 	get_input()
-	velocity.y += gravity * delta
 	if jumping:
 		$AnimatedSprite.play("salto")
 	if jumping and is_on_floor():
 		jumping = false
-	velocity = move_and_slide(velocity,Vector2(0, -1))
+	if caminando:
+		velocity.y += gravity * delta
+		velocity = move_and_slide(velocity,Vector2(0, -1))
 
 func jump_power_up():
 	jump_speed = -800

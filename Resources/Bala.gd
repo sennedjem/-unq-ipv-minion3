@@ -32,4 +32,5 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	$Timer.stop()
+	print('jaja')
 	$"..".disparando = false
