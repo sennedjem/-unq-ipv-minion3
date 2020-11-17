@@ -4,6 +4,7 @@ extends Area2D
 # Declare member variables here. Examples:
 var player_position = 2
 var active = false
+var disparando = false
 # var b = "text"
 
 
@@ -14,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(visible && active):
+	if(visible && active && disparando):
 		var velocidad = 70
 		var direccion = player_position - global_position
 		position += direccion.normalized() * (velocidad ) * delta 
@@ -34,3 +35,4 @@ func _on_Timer_timeout():
 	$Timer.stop()
 	print('jaja')
 	$"..".disparando = false
+	disparando = false
