@@ -7,15 +7,23 @@ signal juego_frenado()
 signal juego_activo()
 var caja_cayendo = false
 var tiempo = 10
+var enemigos = {}
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
+	enemigos = {
+	"EnemigoRojo1": $Plataformas/plataforma2/EnemigoRojo1,
+	"EnemigoRojo2": $Plataformas/plataforma4/EnemigoRojo2
+	}
+	$Plataformas/plataforma2/EnemigoRojo1.left_top_distance = -33
+	$Plataformas/plataforma2/EnemigoRojo1.right_top_distance = 20
+	$Plataformas/plataforma4/EnemigoRojo2.left_top_distance = -33
+	$Plataformas/plataforma4/EnemigoRojo2.right_top_distance = 20
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	set_position_to_enemies()
 	check_distance_caja()
 	if($PersonajeJugable.caminando):
 		$CanvasLayer/Time/RedClock.visible = true
@@ -52,7 +60,7 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Coin_pj_entered():
-	$CanvasLayer/Coins.text = "1"
+	$CanvasLayer/Coins.text = "0"
 
 
 func _on_Timer_timeout():
@@ -63,3 +71,11 @@ func _on_Timer_timeout():
 func _on_EnemigoRojo_kill_pj():
 	ChangeScene.lastLevel = "res://Niveles/NivelPresentacion.tscn"
 	get_tree().change_scene("res://Resources/GameOver.tscn")
+
+
+func _on_EnemigoRojo1_enemigo_murio(body):
+	enemigos.erase(body.name)
+
+func set_position_to_enemies():
+	for enemigo in enemigos.values():
+		enemigo.personajeJugablePosition = $PersonajeJugable.global_position

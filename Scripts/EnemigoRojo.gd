@@ -1,22 +1,22 @@
 extends KinematicBody2D
 
 signal kill_pj()
+signal enemigo_murio(body)
 
-# Declare member variables here. Examples:
-# var a = 2
 var direcction = "left"
 export (int) var run_speed = 60
 export (int) var jump_speed = -340
 export (int) var gravity = 1200
+export var left_top_distance = 0
+export var right_top_distance = 0
+export var personajeJugablePosition = Vector2()
 var rng = RandomNumberGenerator.new()
 var dead = false
 var active = false
 var waiting = false
-var personajeJugablePosition = Vector2()
 var disparando = false
 var velocity = Vector2()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.autostart = false
 	rng.randomize()
@@ -28,28 +28,25 @@ func _ready():
 	else: 
 		direcction ="left"	
 		$AnimatedSprite.flip_h = true
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if!dead:
 		velocity.x = 0
-		if($"../../../PersonajeJugable".global_position.distance_to(self.global_position)<100):
+		if(personajeJugablePosition.distance_to(self.global_position)<100):
 			if !disparando:
 				disparando = true
 				$Bala.visible = true
-				$Bala.player_position = $"../../../PersonajeJugable".global_position
+				$Bala.player_position = personajeJugablePosition
 			$Bala.active = active	
 		if(direcction=="right"):
-			if(self.position.x>_get_top_right_()):
+			if(self.position.x> right_top_distance):
 				waiting = true
 				if($Timer.is_stopped()):
 					var secs = rng.randf()
 					$Timer.start(secs)
 			velocity.x += run_speed
 		else:
-			if(self.position.x<-33):
+			if(self.position.x<left_top_distance):
 				waiting = true
 				if($Timer.is_stopped()):
 					var secs = rng.randf()
@@ -104,6 +101,8 @@ func _on_AnimatedSprite_animation_finished():
 		$AnimatedSprite.stop()
 		$AnimatedSprite.set_animation("muerte")
 		$AnimatedSprite.set_frame(6)
+		queue_free()
+		emit_signal("enemigo_murio", self)
 
 
 func _on_Bala_body_entered(body):

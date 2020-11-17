@@ -6,14 +6,32 @@ signal juego_activo()
 var monedas = 0
 var tiempo = 50
 var esta_en_final = false
+var enemigos = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Plataformas/StaticBody2D6/EnemigoRojo1.left_top_distance = 58
+	$Plataformas/StaticBody2D6/EnemigoRojo1.right_top_distance = 178
+	$Plataformas/StaticBody2D3/EnemigoRojo2.left_top_distance = 353
+	$Plataformas/StaticBody2D3/EnemigoRojo2.right_top_distance = 503
+	$Plataformas/StaticBody2D7/EnemigoRojo3.left_top_distance = 371
+	$Plataformas/StaticBody2D7/EnemigoRojo3.right_top_distance = 527
+	$Plataformas/StaticBody2D5/EnemigoRojo4.left_top_distance = 747
+	$Plataformas/StaticBody2D5/EnemigoRojo4.right_top_distance = 895
+	
+	enemigos = {
+		"EnemigoRojo1": $Plataformas/StaticBody2D6/EnemigoRojo1,
+		"EnemigoRojo2": $Plataformas/StaticBody2D3/EnemigoRojo2,
+		"EnemigoRojo3": $Plataformas/StaticBody2D7/EnemigoRojo3,
+		"EnemigoRojo4": $Plataformas/StaticBody2D5/EnemigoRojo4
+	}
+	
 	$CajaFinal/AnimatedSprite.play("ready")
 	$MusicaFondo.play()
 	$Timer.start()
 
 func _process(delta):
+	set_position_to_enemies()
 	check_ending()
 	if $PersonajeJugable.caminando:
 		_retomar_juego()
@@ -79,4 +97,15 @@ func _on_Timer_timeout():
 		$CanvasLayer/Pasos/Cantidad.text = str(tiempo)
 	else:
 		game_over()	
+	pass # Replace with function body.
+
+func _on_enemigo_murio(body):
+	enemigos.erase(body.name)
+
+func set_position_to_enemies():
+	for enemigo in enemigos.values():
+		enemigo.personajeJugablePosition = $PersonajeJugable.global_position
+
+
+func _on_Level_juego_frenado():
 	pass # Replace with function body.

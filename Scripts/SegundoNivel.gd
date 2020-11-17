@@ -7,11 +7,22 @@ var puede_avanzar = false
 var esta_en_final = false
 signal juego_frenado()
 signal juego_activo()
+var enemigos = {}
 
 func _ready():
 	$MusicaFondo.play()
-
+	
+	$"Bordes y Plataformas/Plataformas/plataforma4/EnemigoRojo1".left_top_distance = -25
+	$"Bordes y Plataformas/Plataformas/plataforma4/EnemigoRojo1".right_top_distance = 194
+	$"Bordes y Plataformas/Plataforma Alta/EnemigoRojo2".right_top_distance = 95
+	$"Bordes y Plataformas/Plataforma Alta/EnemigoRojo2".left_top_distance = -25
+	
+	enemigos = {
+		"EnemigoRojo1" : $"Bordes y Plataformas/Plataformas/plataforma4/EnemigoRojo1",
+		"EnemigoRojo2" : $"Bordes y Plataformas/Plataforma Alta/EnemigoRojo2"
+	}
 func _process(delta):
+	set_position_to_enemies()
 	check_distance_caja()
 	check_ending()
 	if (coins_collected == 14):
@@ -92,3 +103,11 @@ func _on_Area2D_body_entered(body):
 
 func _on_MusicaFondo_finished():
 	$MusicaFondo.play()
+
+
+func _on_enemigo_murio(body):
+	enemigos.erase(body.name)
+	
+func set_position_to_enemies():
+	for enemigo in enemigos.values():
+		enemigo.personajeJugablePosition = $PersonajeJugable.global_position
