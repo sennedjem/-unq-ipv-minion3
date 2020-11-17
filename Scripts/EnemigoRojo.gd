@@ -15,6 +15,7 @@ var dead = false
 var active = false
 var waiting = false
 var disparando = false
+var state = "normal"
 var velocity = Vector2()
 
 func _ready():
@@ -33,11 +34,15 @@ func _process(delta):
 	if!dead:
 		velocity.x = 0
 		if(personajeJugablePosition.distance_to(self.global_position)<100):
+			state = "atack"
+			_update_direcction()
 			if !disparando:
 				disparando = true
 				$Bala.visible = true
 				$Bala.player_position = personajeJugablePosition
 			$Bala.active = active	
+		else:
+			state = "normal"
 		if(direcction=="right"):
 			if(self.position.x> right_top_distance):
 				waiting = true
@@ -74,7 +79,16 @@ func _get_top_right_():
 func _on_Level_juego_frenado():
 	self.active = false
 
-
+func _update_direcction():
+	if(direcction == "right"):
+		if(personajeJugablePosition.x<self.global_position.x):
+			direcction = "left"
+			$AnimatedSprite.flip_h = true
+	else:
+		if(personajeJugablePosition.x>self.global_position.x):
+			direcction = "right"
+			$AnimatedSprite.flip_h = false
+			
 func _on_Timer_timeout():
 	waiting = false;
 	$Timer.stop()
