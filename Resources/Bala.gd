@@ -15,7 +15,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(visible && active):
-		var velocidad = 100
+		var velocidad = 70
 		var direccion = player_position - global_position
 		position += direccion.normalized() * (velocidad ) * delta 
 		if(global_position.distance_to(player_position)<2):

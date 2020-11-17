@@ -109,3 +109,7 @@ func set_position_to_enemies():
 
 func _on_Level_juego_frenado():
 	pass # Replace with function body.
+
+
+func _on_EnemigoRojo_kill_pj():
+	game_over()
