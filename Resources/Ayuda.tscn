@@ -46,8 +46,8 @@ margin_right = 455.947
 margin_bottom = 240.624
 rect_pivot_offset = Vector2( 68.8159, 33.5 )
 custom_fonts/font = SubResource( 2 )
-text = "w-a-s-d       Movimiento
-space          salto"
+text = "flechas       Movimiento
+space             salto"
 __meta__ = {
 "_edit_use_anchors_": false
 }
