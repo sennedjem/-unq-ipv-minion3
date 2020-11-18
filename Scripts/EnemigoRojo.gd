@@ -15,85 +15,133 @@ var dead = false
 var active = false
 var waiting = false
 var disparando = false
+var state = "normal"
 var velocity = Vector2()
 
 func _ready():
 	$Timer.autostart = false
+	_set_random_direction()
+
+func _set_random_direction():
 	rng.randomize()
 	var random = rng.randf()
 	if random>0.5:
-		direcction = "right"
-		$AnimatedSprite.flip_h = false
-		$Bala.position.x = -37
+		_turn_right()
 	else: 
-		direcction ="left"	
-		$AnimatedSprite.flip_h = true
+		_turn_left()
 
 func _process(delta):
 	if!dead:
 		velocity.x = 0
-		if(personajeJugablePosition.distance_to(self.global_position)<100):
-			if !disparando:
-				disparando = true
-				$Bala.visible = true
-				$Bala.player_position = personajeJugablePosition
-			$Bala.active = active	
-		if(direcction=="right"):
-			if(self.position.x> right_top_distance):
-				waiting = true
-				if($Timer.is_stopped()):
-					var secs = rng.randf()
-					$Timer.start(secs)
+		_check_pj_proximity()
+		if(state == "normal"):	
+			_check_im_on_the_edge()
+		_update_velocity_vector(delta)
+		_move()
+	
+func _move():
+	if active:
+		if(!waiting):
+			velocity = move_and_slide(velocity,Vector2(0, -1))
+			$AnimatedSprite.play("correr")
+		else:
+			$AnimatedSprite.play("ocioso")
+	else:
+		$AnimatedSprite.play("estatico")
+	
+func _update_velocity_vector(delta):
+	if(direcction=="right"):	
 			velocity.x += run_speed
-		else:
-			if(self.position.x<left_top_distance):
-				waiting = true
-				if($Timer.is_stopped()):
-					var secs = rng.randf()
-					$Timer.start(secs)
-			velocity.x -= run_speed	
-		velocity.y += gravity * delta
-		if active:
-			if(!waiting):
-				velocity = move_and_slide(velocity,Vector2(0, -1))
-				$AnimatedSprite.play("correr")
-			else:
-				$AnimatedSprite.play("ocioso")
-		else:
-			$AnimatedSprite.play("estatico")
+	else:
+		velocity.x -= run_speed		
+	velocity.y += gravity * delta	
+			
+func _check_im_on_the_edge():
+	if(direcction=="right"):
+		if(_im_on_right_top()):
+			_start_timer()
+	else:
+		if(_im_on_left_top()):
+			_start_timer()
 
+func _start_timer():
+	waiting = true
+	if($Timer.is_stopped()):
+		var secs = rng.randf()
+		$Timer.start(secs)
+
+func _im_on_right_top():
+	return self.position.x> right_top_distance
+
+func _im_on_left_top():
+	return self.position.x< left_top_distance
+		
+func _check_pj_proximity():
+	var distanceY = personajeJugablePosition.y - global_position.y
+	if(personajeJugablePosition.distance_to(self.global_position)<100 && _same_level_y()):
+		state = "atack"
+		_check_pj_distance()
+		if !disparando:
+			_shoot_bullet() 
+	else:
+		state = "normal"
+		
+func _same_level_y():	
+	var distanceY = personajeJugablePosition.y - global_position.y
+	if(distanceY>0):
+		return distanceY < 15
+	else:	
+		return distanceY> -15
+		
+func _shoot_bullet():
+	disparando = true
+	$Bala.visible = true
+	$Bala.disparando = true
+	$Bala.player_position = personajeJugablePosition
 
 func _on_Level_juego_activo():
 	self.active = true
-
-func _get_top_right_():
-	if($"../Caja" || $"../CajaFinal"):
-		return 20
-	return 33
+	$Bala.active = true
 	
 func _on_Level_juego_frenado():
 	self.active = false
+	$Bala.active = false
 
+func _turn_left():
+	direcction = "left"
+	$Bala.position.x = -37
+	$AnimatedSprite.flip_h = true
 
+func _turn_right():
+	direcction = "right"
+	$AnimatedSprite.flip_h = false
+	$Bala.position.x = 0
+
+func _check_pj_distance():
+	if(direcction == "right"):
+		if(personajeJugablePosition.x<self.global_position.x || _im_on_right_top()):
+			_turn_left()
+	else:
+		if(personajeJugablePosition.x>self.global_position.x || _im_on_left_top()):
+			_turn_right()
+			
 func _on_Timer_timeout():
 	waiting = false;
 	$Timer.stop()
 	if direcction == "right":
-		direcction = "left"
-		$Bala.position.x = -37
-		$AnimatedSprite.flip_h = true
+		_turn_left()
 	else:
-		direcction = "right"
-		$AnimatedSprite.flip_h = false	
+		_turn_right()
 
+func _enemy_dead():
+	dead = true
+	$Bala.active = false
+	$Bala.visible = false
+	$AnimatedSprite.play("muerte")
 
 func _on_Area2D_body_entered(body):
-	print(body.name)
 	if(body.name == "PersonajeJugable"):
-		dead = true
-		$Bala.active = false
-		$Bala.visible = false
-		$AnimatedSprite.play("muerte")
+		_enemy_dead()
 
 
 func _on_AnimatedSprite_animation_finished():

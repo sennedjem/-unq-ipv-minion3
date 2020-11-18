@@ -26,16 +26,16 @@ func _process(delta):
 	set_position_to_enemies()
 	check_distance_caja()
 	if($PersonajeJugable.caminando):
-		$CanvasLayer/Time/RedClock.visible = true
-		$CanvasLayer/Time/WhiteClock.visible = false
-		$CanvasLayer/Time.modulate = Color(1, 0, 0) 
+		$CanvasLayer/Time/RedClock.visible = false
+		$CanvasLayer/Time/WhiteClock.visible = true
+		$CanvasLayer/Time.modulate = Color(1, 1, 1) 
 		emit_signal("juego_activo")
 		if $Timer.is_stopped():
 			$Timer.start()
 	else:	
-		$CanvasLayer/Time/RedClock.visible = false
-		$CanvasLayer/Time/WhiteClock.visible = true
-		$CanvasLayer/Time.modulate = Color(1, 1, 1) 
+		$CanvasLayer/Time/RedClock.visible = true
+		$CanvasLayer/Time/WhiteClock.visible = false
+		$CanvasLayer/Time.modulate = Color(1, 0, 0) 
 		emit_signal("juego_frenado")
 		$Timer.stop()
 

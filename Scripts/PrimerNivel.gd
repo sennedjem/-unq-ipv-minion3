@@ -46,16 +46,16 @@ func _on_Coin_pj_entered():
 
 func _frenar_juego():
 	emit_signal("juego_frenado")
-	$CanvasLayer/Pasos/clock4.visible = false
-	$CanvasLayer/Pasos/clock.visible = true
-	$CanvasLayer/Pasos/Cantidad.modulate = Color(1, 1, 1) 
+	$CanvasLayer/Pasos/clock4.visible = true
+	$CanvasLayer/Pasos/clock.visible = false
+	$CanvasLayer/Pasos/Cantidad.modulate = Color(1, 0, 0) 
 	$Timer.stop()
 
 func _retomar_juego():
 	emit_signal("juego_activo")
-	$CanvasLayer/Pasos/clock4.visible = true
-	$CanvasLayer/Pasos/clock.visible = false
-	$CanvasLayer/Pasos/Cantidad.modulate = Color(1, 0, 0) 
+	$CanvasLayer/Pasos/clock4.visible = false
+	$CanvasLayer/Pasos/clock.visible = true
+	$CanvasLayer/Pasos/Cantidad.modulate = Color(1, 1, 1) 
 	if $Timer.is_stopped():
 		$Timer.start()
 
@@ -109,3 +109,7 @@ func set_position_to_enemies():
 
 func _on_Level_juego_frenado():
 	pass # Replace with function body.
+
+
+func _on_EnemigoRojo_kill_pj():
+	game_over()

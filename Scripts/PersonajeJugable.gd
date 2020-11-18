@@ -22,9 +22,9 @@ func _physics_process(delta):
 		$AnimatedSprite.play("salto")
 	if jumping and is_on_floor():
 		jumping = false
-	if caminando:
-		velocity.y += gravity * delta
-		velocity = move_and_slide(velocity,Vector2(0, -1))
+	#if caminando:
+	velocity.y += gravity * delta
+	velocity = move_and_slide(velocity,Vector2(0, -1))
 
 func jump_power_up():
 	jump_speed = -800
@@ -107,8 +107,8 @@ func salto_normal(caja,timer):
 
 
 func _on_Caja_body_entered(body):
-	print(body)
-	salto_normal($"../Plataformas/plataforma2/Caja/AnimatedSprite",$"../Plataformas/plataforma2/Caja/CajaTimer")
+	if(body.name == "PersonajeJugable"):
+		salto_normal($"../Plataformas/plataforma2/Caja/AnimatedSprite",$"../Plataformas/plataforma2/Caja/CajaTimer")
 
 
 func _on_CajaTimer_timeout():
