@@ -77,13 +77,21 @@ func _im_on_left_top():
 	return self.position.x< left_top_distance
 		
 func _check_pj_proximity():
-	if(personajeJugablePosition.distance_to(self.global_position)<100):
+	var distanceY = personajeJugablePosition.y - global_position.y
+	if(personajeJugablePosition.distance_to(self.global_position)<100 && _same_level_y()):
 		state = "atack"
 		_check_pj_distance()
 		if !disparando:
 			_shoot_bullet() 
 	else:
 		state = "normal"
+		
+func _same_level_y():	
+	var distanceY = personajeJugablePosition.y - global_position.y
+	if(distanceY>0):
+		return distanceY < 15
+	else:	
+		return distanceY> -15
 		
 func _shoot_bullet():
 	disparando = true
@@ -111,10 +119,10 @@ func _turn_right():
 
 func _check_pj_distance():
 	if(direcction == "right"):
-		if(personajeJugablePosition.x<self.global_position.x):
+		if(personajeJugablePosition.x<self.global_position.x || _im_on_right_top()):
 			_turn_left()
 	else:
-		if(personajeJugablePosition.x>self.global_position.x):
+		if(personajeJugablePosition.x>self.global_position.x || _im_on_left_top()):
 			_turn_right()
 			
 func _on_Timer_timeout():
