@@ -40,16 +40,16 @@ func _ready():
 	
 func _frenar_juego():
 	emit_signal("juego_frenado")
-	$"Top Line/Time/clock4".visible = false
-	$"Top Line/Time/clock".visible = true
-	$"Top Line/Time".modulate = Color(1, 1, 1) 	
+	$"Top Line/Time/clock4".visible = true
+	$"Top Line/Time/clock".visible = false
+	$"Top Line/Time".modulate = Color(1, 0, 0) 
 	$Timer.stop()
 
 func _retomar_juego():
 	emit_signal("juego_activo")
-	$"Top Line/Time/clock4".visible = true
-	$"Top Line/Time/clock".visible = false
-	$"Top Line/Time".modulate = Color(1, 0, 0) 
+	$"Top Line/Time/clock4".visible = false
+	$"Top Line/Time/clock".visible = true
+	$"Top Line/Time".modulate = Color(1, 1, 1) 	
 	if $Timer.is_stopped():
 		$Timer.start()
 	
@@ -117,3 +117,8 @@ func _on_enemigo_murio(body):
 func set_position_to_enemies():
 	for enemigo in enemigos.values():
 		enemigo.personajeJugablePosition = $PersonajeJugable.global_position
+
+
+func _on_EnemigoRojo_kill_pj():
+	ChangeScene.lastLevel = "res://Niveles/TercerNivel.tscn"
+	get_tree().change_scene("res://Resources/GameOver.tscn")
