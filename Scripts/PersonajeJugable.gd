@@ -55,6 +55,7 @@ func get_input():
 		caminando = true
 	elif shift:
 		caminando = true	
+		$AnimatedSprite.stop()
 	else:
 		caminando = false
 		$AnimatedSprite.stop()	

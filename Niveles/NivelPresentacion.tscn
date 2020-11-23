@@ -245,16 +245,16 @@ position = Vector2( 348.652, 411.333 )
 scale = Vector2( 0.701015, 0.590254 )
 move_to = Vector2( 300, 0 )
 speed = 1.0
-[connection signal="juego_activo" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Coin" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="MovingPlatform" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Plataformas/plataforma2/EnemigoRojo1" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Plataformas/plataforma4/EnemigoRojo2" method="_on_Level_juego_activo"]
-[connection signal="juego_frenado" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_frenado"]
+[connection signal="juego_activo" from="." to="MovingPlatform" method="_on_Level_juego_activo"]
 [connection signal="juego_frenado" from="." to="Coin" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="MovingPlatform" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Plataformas/plataforma2/EnemigoRojo1" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Plataformas/plataforma4/EnemigoRojo2" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="MovingPlatform" method="_on_Level_juego_frenado"]
 [connection signal="kill_pj" from="Plataformas/plataforma4/EnemigoRojo2" to="." method="_on_EnemigoRojo_kill_pj"]
 [connection signal="personaje_entro" from="Plataformas/plataforma4/CajaFinal" to="." method="_on_CajaFinal_personaje_entro"]
 [connection signal="body_entered" from="Plataformas/plataforma2/Caja" to="PersonajeJugable" method="_on_Caja_body_entered"]

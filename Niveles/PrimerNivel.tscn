@@ -276,21 +276,21 @@ shape = SubResource( 2 )
 [node name="StaticBody2d9" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d9"]
-position = Vector2( 405.513, 302.372 )
+position = Vector2( 405.513, 309.114 )
 texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d9"]
-position = Vector2( 403.818, 299.156 )
+position = Vector2( 403.818, 305.898 )
 shape = SubResource( 2 )
 
 [node name="StaticBody2d15" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d15"]
-position = Vector2( 288.89, 289.335 )
+position = Vector2( 287.392, 308.064 )
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d15"]
-position = Vector2( 289.436, 290.362 )
+position = Vector2( 287.938, 309.091 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2d17" type="StaticBody2D" parent="Plataformas"]
@@ -336,11 +336,11 @@ shape = SubResource( 3 )
 [node name="StaticBody2d16" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d16"]
-position = Vector2( 233.736, 265.294 )
+position = Vector2( 234.485, 320.731 )
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d16"]
-position = Vector2( 234.282, 264.906 )
+position = Vector2( 235.031, 320.343 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2d13" type="StaticBody2D" parent="Plataformas"]
@@ -538,7 +538,7 @@ position = Vector2( 354.159, 7.89832 )
 texture = ExtResource( 7 )
 
 [node name="fondonegro" type="Sprite" parent="."]
-position = Vector2( 639.92, 356.918 )
+position = Vector2( 641.297, 354.219 )
 scale = Vector2( 1.11351, 0.928129 )
 z_index = -2
 texture = ExtResource( 9 )
@@ -671,57 +671,57 @@ volume_db = -0.5
 
 [node name="ChangeScene" type="Node2D" parent="."]
 script = ExtResource( 20 )
-[connection signal="juego_activo" from="." to="Monedas/Coin6" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin7" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin10" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D5/EnemigoRojo4" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin5" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin4" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin3" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin2" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="CajaFinal" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin8" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Plataformas/StaticBody2D3/EnemigoRojo2" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D5/EnemigoRojo4" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D6/EnemigoRojo1" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Plataformas/StaticBody2D7/EnemigoRojo3" method="_on_Level_juego_activo"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin6" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin9" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin7" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="." method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin10" method="_on_Level_juego_frenado"]
+[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D6/EnemigoRojo1" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin6" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin7" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin8" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin10" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="CajaFinal" method="_on_Level_juego_activo"]
+[connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D5/EnemigoRojo4" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin5" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin4" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin3" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin2" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="CajaFinal" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin8" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D3/EnemigoRojo2" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D5/EnemigoRojo4" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D6/EnemigoRojo1" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="." method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D7/EnemigoRojo3" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D6/EnemigoRojo1" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin6" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin7" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin8" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin9" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin10" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="CajaFinal" method="_on_Level_juego_frenado"]
 [connection signal="pj_step" from="PersonajeJugable" to="." method="_on_PersonajeJugable_pj_step"]
 [connection signal="enemigo_murio" from="Plataformas/StaticBody2D3/EnemigoRojo2" to="." method="_on_enemigo_murio"]
 [connection signal="kill_pj" from="Plataformas/StaticBody2D3/EnemigoRojo2" to="." method="_on_EnemigoRojo_kill_pj"]
 [connection signal="enemigo_murio" from="Plataformas/StaticBody2D5/EnemigoRojo4" to="." method="_on_enemigo_murio"]
 [connection signal="enemigo_murio" from="Plataformas/StaticBody2D6/EnemigoRojo1" to="." method="_on_enemigo_murio"]
 [connection signal="enemigo_murio" from="Plataformas/StaticBody2D7/EnemigoRojo3" to="." method="_on_enemigo_murio"]
-[connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
 [connection signal="timeout" from="KinematicBody2D2/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="KinematicBody2D5" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D5" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D5" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
 [connection signal="timeout" from="KinematicBody2D5/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D3_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
-[connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_TimerBox3_timeout"]
+[connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D3_body_entered"]
 [connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D4_body_entered"]
+[connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_TimerBox3_timeout"]
 [connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
-[connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_TimerBox2_timeout"]
+[connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D4_body_entered"]
 [connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_Timer_timeout"]
+[connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_TimerBox2_timeout"]
 [connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin2" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin3" to="." method="_on_Coin_pj_entered"]
