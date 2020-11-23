@@ -34,7 +34,8 @@ func get_input():
 	var right = Input.is_action_pressed('ui_right')
 	var left = Input.is_action_pressed('ui_left')
 	var jump = Input.is_action_just_pressed('ui_select')
-
+	var shift = Input.is_action_pressed('ui_shift')
+	
 	if jump and is_on_floor():
 		jump(jump_speed)
 		caminando = true
@@ -52,6 +53,8 @@ func get_input():
 		$AnimatedSprite.flip_h = true
 		velocity.x -= run_speed	
 		caminando = true
+	elif shift:
+		caminando = true	
 	else:
 		caminando = false
 		$AnimatedSprite.stop()	
