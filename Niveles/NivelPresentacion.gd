@@ -78,4 +78,5 @@ func _on_EnemigoRojo1_enemigo_murio(body):
 
 func set_position_to_enemies():
 	for enemigo in enemigos.values():
-		enemigo.personajeJugablePosition = $PersonajeJugable.global_position
+		if (enemigo != null):
+			enemigo.personajeJugablePosition = $PersonajeJugable.global_position

@@ -79,8 +79,8 @@ func _im_on_left_top():
 func _check_pj_proximity():
 	var distanceY = personajeJugablePosition.y - global_position.y
 	if(personajeJugablePosition.distance_to(self.global_position)<100 && _same_level_y()):
+		print(personajeJugablePosition.distance_to(self.global_position))
 		state = "atack"
-		_check_pj_distance()
 		if !disparando:
 			_shoot_bullet() 
 	else:
