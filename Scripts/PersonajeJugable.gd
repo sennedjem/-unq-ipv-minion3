@@ -5,6 +5,7 @@ signal pj_step()
 # Declare member variables here. Examples:
 # var a = 2
 var direccion;
+
 export (int) var run_speed = 100
 export (int) var jump_speed = -340
 export (int) var gravity = 1200
@@ -35,6 +36,7 @@ func get_input():
 	var left = Input.is_action_pressed('ui_left')
 	var jump = Input.is_action_just_pressed('ui_select')
 	var shift = Input.is_action_pressed('ui_shift')
+	var ctrl = Input.is_action_just_pressed('ui_ctrl')
 	
 	if jump and is_on_floor():
 		jump(jump_speed)
@@ -56,6 +58,8 @@ func get_input():
 	elif shift:
 		caminando = true	
 		$AnimatedSprite.stop()
+	elif ctrl:
+		ChangeScene.pause = !ChangeScene.pause
 	else:
 		caminando = false
 		$AnimatedSprite.stop()	

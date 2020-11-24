@@ -40,7 +40,7 @@ func _process(delta):
 		_move()
 	
 func _move():
-	if active:
+	if active&&!_pause():
 		if(!waiting):
 			velocity = move_and_slide(velocity,Vector2(0, -1))
 			$AnimatedSprite.play("correr")
@@ -77,11 +77,9 @@ func _im_on_left_top():
 	return self.position.x< left_top_distance
 		
 func _check_pj_proximity():
-	var distanceY = personajeJugablePosition.y - global_position.y
 	if(personajeJugablePosition.distance_to(self.global_position)<100 && _same_level_y()):
-		print(personajeJugablePosition.distance_to(self.global_position))
 		state = "atack"
-		if !disparando:
+		if !disparando&&!_pause():
 			_shoot_bullet() 
 	else:
 		state = "normal"
@@ -92,6 +90,12 @@ func _same_level_y():
 		return distanceY < 15
 	else:	
 		return distanceY> -15
+		
+func _pause():
+	if(personajeJugablePosition.distance_to(self.global_position)<100 && _same_level_y()):	
+		return false
+	else:
+		return ChangeScene.pause
 		
 func _shoot_bullet():
 	disparando = true
@@ -109,13 +113,15 @@ func _on_Level_juego_frenado():
 
 func _turn_left():
 	direcction = "left"
-	$Bala.position.x = -37
 	$AnimatedSprite.flip_h = true
+	if(!disparando):
+		$Bala.position.x = -37
 
 func _turn_right():
 	direcction = "right"
 	$AnimatedSprite.flip_h = false
-	$Bala.position.x = 0
+	if(!disparando):
+		$Bala.position.x = 0
 
 func _check_pj_distance():
 	if(direcction == "right"):
