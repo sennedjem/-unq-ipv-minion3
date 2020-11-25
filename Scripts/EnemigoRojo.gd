@@ -33,9 +33,8 @@ func _set_random_direction():
 func _process(delta):
 	if!dead:
 		velocity.x = 0
-		_check_pj_proximity()
-		if(state == "normal"):	
-			_check_im_on_the_edge()
+		_check_pj_proximity()	
+		_check_im_on_the_edge()
 		_update_velocity_vector(delta)
 		_move()
 	
@@ -79,7 +78,7 @@ func _im_on_left_top():
 func _check_pj_proximity():
 	if(personajeJugablePosition.distance_to(self.global_position)<100 && _same_level_y()):
 		state = "atack"
-		if !disparando&&!_pause():
+		if !disparando&&!_pause()&&_can_shoot():
 			_shoot_bullet() 
 	else:
 		state = "normal"
@@ -122,6 +121,12 @@ func _turn_right():
 	$AnimatedSprite.flip_h = false
 	if(!disparando):
 		$Bala.position.x = 0
+
+func _can_shoot():
+	if(direcction == "right"):
+		return !(personajeJugablePosition.x<self.global_position.x)
+	else:
+		return !(personajeJugablePosition.x>self.global_position.x)
 
 func _check_pj_distance():
 	if(direcction == "right"):
