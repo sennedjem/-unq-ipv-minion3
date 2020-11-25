@@ -40,7 +40,7 @@ position = Vector2( -0.10684, 1.33635 )
 scale = Vector2( 1.15035, 0.932778 )
 frames = SubResource( 1 )
 animation = "salto"
-frame = 1
+frame = 3
 speed_scale = 2.0
 playing = true
 flip_h = true
@@ -60,3 +60,7 @@ smoothing_speed = 10.0
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+
+[node name="PauseTimer" type="Timer" parent="."]
+wait_time = 5.0
+[connection signal="timeout" from="PauseTimer" to="." method="_on_PauseTimer_timeout"]

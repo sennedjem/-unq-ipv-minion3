@@ -16,6 +16,9 @@ var jumpings = 0
 var pasos = 0
 var caminando = false
 
+func _ready():
+	ChangeScene.pause = false
+
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
 	get_input()
@@ -59,7 +62,10 @@ func get_input():
 		caminando = true	
 		$AnimatedSprite.stop()
 	elif ctrl:
-		ChangeScene.pause = !ChangeScene.pause
+		print('pausa')
+		if($PauseTimer.is_stopped()):
+			ChangeScene.pause = !ChangeScene.pause
+			$PauseTimer.start()
 	else:
 		caminando = false
 		$AnimatedSprite.stop()	
@@ -121,3 +127,9 @@ func _on_Caja_body_entered(body):
 
 func _on_CajaTimer_timeout():
 	$"../Plataformas/plataforma2/Caja/AnimatedSprite".play('normal')
+
+
+func _on_PauseTimer_timeout():
+	$PauseTimer.stop()
+	print('ya no me pause')
+	ChangeScene.pause = !ChangeScene.pause
