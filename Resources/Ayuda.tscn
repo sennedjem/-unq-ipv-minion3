@@ -66,8 +66,8 @@ Si estas quieto, nada se mueve.
 Si caminas todo lo hace.
 El tiempo avanza al moverse al igual que los 
 enemigos.
-Si juntas todas las monedas necesarias se 
-activa la caja y podras avanzar de nivel"
+Si juntas todas las llaves necesarias se 
+activa la puerta y podras avanzar de nivel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
