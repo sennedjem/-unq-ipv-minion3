@@ -58,7 +58,7 @@ func _process(delta):
 	if (coins == 10):
 		puede_avanzar = true
 		$CajaFinal/AnimatedSprite.play("fin")
-	elif (coins == 5):
+	else:
 		$CajaFinal/AnimatedSprite.play("mitad")
 	check_ending()
 	if $PersonajeJugable.caminando:
@@ -91,7 +91,8 @@ func _on_Area2D2_body_entered(body):
 		get_tree().change_scene("res://Resources/GameOver.tscn")
 
 func _on_CajaFinal_personaje_entro():
-	get_tree().change_scene("res://Resources/JuegoFinalizado.tscn")
+	if puede_avanzar:
+		get_tree().change_scene("res://Resources/JuegoFinalizado.tscn")
 
 func _on_CajaFinal_personaje_salio():
 	esta_en_final = false

@@ -17,7 +17,6 @@
 [ext_resource path="res://Resources/EnemigoRojo.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Texturas/clock4.png" type="Texture" id=16]
 [ext_resource path="res://Texturas/output-onlinepngtools.png" type="Texture" id=17]
-[ext_resource path="res://Texturas/coin.png" type="Texture" id=18]
 [ext_resource path="res://Texturas/silueta4.jpg" type="Texture" id=19]
 [ext_resource path="res://Texturas/silueta2.jpg" type="Texture" id=20]
 
@@ -59,6 +58,10 @@ font_data = ExtResource( 13 )
 size = 18
 font_data = ExtResource( 13 )
 
+[sub_resource type="StreamTexture" id=10]
+flags = 4
+load_path = "res://.import/key3.png-678c07bc1c38a1faa384e3497808e33f.stex"
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 8 )
 
@@ -83,7 +86,7 @@ scale = Vector2( 1.85077, 2.17884 )
 texture = ExtResource( 19 )
 
 [node name="silueta2" type="Sprite" parent="fondonegro"]
-position = Vector2( -999.018, -9.9682 )
+position = Vector2( -968.757, 200.875 )
 scale = Vector2( 1.67489, 1.85772 )
 texture = ExtResource( 20 )
 
@@ -234,9 +237,9 @@ __meta__ = {
 }
 
 [node name="coin" type="Sprite" parent="CanvasLayer/Coins"]
-position = Vector2( -15.1895, 11.8214 )
-scale = Vector2( 0.0528114, 0.048926 )
-texture = ExtResource( 18 )
+position = Vector2( -20.6913, 13.0849 )
+scale = Vector2( 0.990895, 0.960272 )
+texture = SubResource( 10 )
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -246,15 +249,15 @@ scale = Vector2( 0.701015, 0.590254 )
 move_to = Vector2( 300, 0 )
 speed = 1.0
 [connection signal="juego_activo" from="." to="Plataformas/plataforma2/EnemigoRojo1" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Plataformas/plataforma4/EnemigoRojo2" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="MovingPlatform" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Coin" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="MovingPlatform" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/plataforma4/EnemigoRojo2" method="_on_Level_juego_activo"]
 [connection signal="juego_frenado" from="." to="Plataformas/plataforma2/EnemigoRojo1" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Plataformas/plataforma4/EnemigoRojo2" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="MovingPlatform" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Plataformas/plataforma4/CajaFinal" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Coin" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="MovingPlatform" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Plataformas/plataforma4/EnemigoRojo2" method="_on_Level_juego_frenado"]
 [connection signal="kill_pj" from="Plataformas/plataforma4/EnemigoRojo2" to="." method="_on_EnemigoRojo_kill_pj"]
 [connection signal="personaje_entro" from="Plataformas/plataforma4/CajaFinal" to="." method="_on_CajaFinal_personaje_entro"]
 [connection signal="body_entered" from="Plataformas/plataforma2/Caja" to="PersonajeJugable" method="_on_Caja_body_entered"]

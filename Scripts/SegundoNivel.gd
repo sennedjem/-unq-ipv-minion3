@@ -5,6 +5,7 @@ var coins_collected = 0
 var seconds = 60
 var puede_avanzar = false
 var esta_en_final = false
+var caja_cayendo = false
 signal juego_frenado()
 signal juego_activo()
 var enemigos = {}
@@ -54,13 +55,12 @@ func check_distance_caja():
 	var distanceCajaPj = $PersonajeJugable.position.distance_to($"Bordes y Plataformas/Techo con gancho/Caja".position)
 	var distanceCajaPlataforma = $"Bordes y Plataformas/Techo con gancho/Caja".position.distance_to($"Bordes y Plataformas/Plataforma Alta/StaticBody2D".position)
 	
-	if (distanceCajaPlataforma > 405):
-		$"Bordes y Plataformas/Techo con gancho/Caja".mode = RigidBody2D.MODE_STATIC
-	elif (distanceCajaPj < 55):
-		if($PersonajeJugable.caminando):
-			$"Bordes y Plataformas/Techo con gancho/Caja".mode = RigidBody2D.MODE_RIGID
-		else:
-			$"Bordes y Plataformas/Techo con gancho/Caja".mode = RigidBody2D.MODE_STATIC
+	if(distanceCajaPj < 55):
+		caja_cayendo = true
+	if($PersonajeJugable.caminando&&caja_cayendo):	
+		$"Bordes y Plataformas/Techo con gancho/Caja".mode = RigidBody2D.MODE_RIGID
+	else:
+		$"Bordes y Plataformas/Techo con gancho/Caja".mode = RigidBody2D.MODE_STATIC		
 
 func _on_Coin_pj_entered():
 	coins_collected += 1

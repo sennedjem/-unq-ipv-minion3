@@ -17,7 +17,6 @@
 [ext_resource path="res://Texturas/Limit vertical.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/PrimerNivel.gd" type="Script" id=16]
 [ext_resource path="res://Texturas/clock4.png" type="Texture" id=17]
-[ext_resource path="res://Texturas/coin.png" type="Texture" id=18]
 [ext_resource path="res://Texturas/output-onlinepngtools.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/ChangeScene.gd" type="Script" id=20]
 [ext_resource path="res://Resources/EnemigoRojo.tscn" type="PackedScene" id=21]
@@ -26,7 +25,7 @@
 extents = Vector2( 41.8141, 5.71393 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 41.9907, 7.7272 )
+extents = Vector2( 42.7078, 7.7272 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10.7926, 2.75391 )
@@ -57,7 +56,11 @@ extents = Vector2( 131.394, 7.11231 )
 size = 18
 font_data = ExtResource( 1 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="StreamTexture" id=9]
+flags = 4
+load_path = "res://.import/key3.png-678c07bc1c38a1faa384e3497808e33f.stex"
+
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 568, 10 )
 
 [node name="Node2D" type="Node2D"]
@@ -206,11 +209,11 @@ texture = ExtResource( 12 )
 [node name="StaticBody2d6" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d6"]
-position = Vector2( 646.807, 386.617 )
+position = Vector2( 647.368, 395.035 )
 texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d6"]
-position = Vector2( 646.526, 387.644 )
+position = Vector2( 647.087, 396.062 )
 shape = SubResource( 2 )
 
 [node name="StaticBody2d14" type="StaticBody2D" parent="Plataformas"]
@@ -226,11 +229,11 @@ shape = SubResource( 2 )
 [node name="StaticBody2d8" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d8"]
-position = Vector2( 160.355, 227.355 )
+position = Vector2( 160.827, 233.018 )
 texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d8"]
-position = Vector2( 160.074, 226.948 )
+position = Vector2( 160.546, 232.611 )
 shape = SubResource( 2 )
 
 [node name="StaticBody2d10" type="StaticBody2D" parent="Plataformas"]
@@ -266,61 +269,61 @@ shape = SubResource( 2 )
 [node name="StaticBody2d7" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d7"]
-position = Vector2( 523.251, 350.569 )
+position = Vector2( 523.251, 357.304 )
 texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d7"]
-position = Vector2( 523.143, 350.182 )
+position = Vector2( 523.143, 356.917 )
 shape = SubResource( 2 )
 
 [node name="StaticBody2d9" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataformita" type="Sprite" parent="Plataformas/StaticBody2d9"]
-position = Vector2( 405.513, 309.114 )
+position = Vector2( 406.074, 327.073 )
 texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d9"]
-position = Vector2( 403.818, 305.898 )
+position = Vector2( 405.883, 326.83 )
 shape = SubResource( 2 )
 
 [node name="StaticBody2d15" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d15"]
-position = Vector2( 287.392, 308.064 )
+position = Vector2( 286.762, 319.403 )
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d15"]
-position = Vector2( 287.938, 309.091 )
+position = Vector2( 287.308, 320.43 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2d17" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d17"]
-position = Vector2( 228.786, 189.633 )
+position = Vector2( 231.146, 206.151 )
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d17"]
-position = Vector2( 228.625, 190.66 )
+position = Vector2( 230.985, 207.178 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2d18" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d18"]
-position = Vector2( 272.627, 170.541 )
+position = Vector2( 273.571, 189.89 )
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d18"]
-position = Vector2( 272.466, 170.861 )
+position = Vector2( 273.41, 190.21 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2d19" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d19"]
-position = Vector2( 272.627, 170.541 )
+position = Vector2( 273.571, 189.89 )
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d19"]
-position = Vector2( 272.466, 170.861 )
+position = Vector2( 273.41, 190.21 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2d20" type="StaticBody2D" parent="Plataformas"]
@@ -336,11 +339,11 @@ shape = SubResource( 3 )
 [node name="StaticBody2d16" type="StaticBody2D" parent="Plataformas"]
 
 [node name="Plataforma que cae" type="Sprite" parent="Plataformas/StaticBody2d16"]
-position = Vector2( 234.485, 320.731 )
+position = Vector2( 233.855, 332.07 )
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/StaticBody2d16"]
-position = Vector2( 235.031, 320.343 )
+position = Vector2( 234.401, 331.682 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2d13" type="StaticBody2D" parent="Plataformas"]
@@ -538,7 +541,7 @@ position = Vector2( 354.159, 7.89832 )
 texture = ExtResource( 7 )
 
 [node name="fondonegro" type="Sprite" parent="."]
-position = Vector2( 648.122, 363.423 )
+position = Vector2( 645.77, 360.075 )
 scale = Vector2( 1.11351, 0.928129 )
 z_index = -2
 texture = ExtResource( 9 )
@@ -642,9 +645,9 @@ __meta__ = {
 }
 
 [node name="coin" type="Sprite" parent="CanvasLayer/Monedas"]
-position = Vector2( -22.5396, 11.4802 )
-scale = Vector2( 0.0703034, 0.057878 )
-texture = ExtResource( 18 )
+position = Vector2( -16.4634, 12.6011 )
+scale = Vector2( 0.833514, 0.769471 )
+texture = SubResource( 9 )
 
 [node name="CajaFinal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 909, 128.5 )
@@ -654,7 +657,7 @@ z_index = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
 position = Vector2( 490, 616 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -671,43 +674,46 @@ volume_db = -0.5
 
 [node name="ChangeScene" type="Node2D" parent="."]
 script = ExtResource( 20 )
-[connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin6" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin10" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin7" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D7/EnemigoRojo3" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D5/EnemigoRojo4" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin8" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D6/EnemigoRojo1" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin6" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D3/EnemigoRojo2" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="CajaFinal" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin4" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin5" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin9" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin3" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Monedas/Coin" method="_on_Level_juego_activo"]
 [connection signal="juego_activo" from="." to="Monedas/Coin2" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D5/EnemigoRojo4" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D3/EnemigoRojo2" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D7/EnemigoRojo3" method="_on_Level_juego_activo"]
-[connection signal="juego_activo" from="." to="Plataformas/StaticBody2D6/EnemigoRojo1" method="_on_Level_juego_activo"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin9" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin6" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin10" method="_on_Level_juego_frenado"]
+[connection signal="juego_activo" from="." to="Monedas/Coin5" method="_on_Level_juego_activo"]
+[connection signal="juego_activo" from="." to="Monedas/Coin10" method="_on_Level_juego_activo"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin7" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin8" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="CajaFinal" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin4" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin5" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin3" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Monedas/Coin2" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D7/EnemigoRojo3" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="." method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D5/EnemigoRojo4" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D3/EnemigoRojo2" method="_on_Level_juego_frenado"]
-[connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D7/EnemigoRojo3" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin8" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D6/EnemigoRojo1" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin6" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Plataformas/StaticBody2D3/EnemigoRojo2" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="CajaFinal" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin4" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin9" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin3" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin2" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin5" method="_on_Level_juego_frenado"]
+[connection signal="juego_frenado" from="." to="Monedas/Coin10" method="_on_Level_juego_frenado"]
 [connection signal="pj_step" from="PersonajeJugable" to="." method="_on_PersonajeJugable_pj_step"]
 [connection signal="enemigo_murio" from="Plataformas/StaticBody2D3/EnemigoRojo2" to="." method="_on_enemigo_murio"]
 [connection signal="kill_pj" from="Plataformas/StaticBody2D3/EnemigoRojo2" to="." method="_on_EnemigoRojo_kill_pj"]
 [connection signal="enemigo_murio" from="Plataformas/StaticBody2D5/EnemigoRojo4" to="." method="_on_enemigo_murio"]
+[connection signal="kill_pj" from="Plataformas/StaticBody2D5/EnemigoRojo4" to="." method="_on_EnemigoRojo_kill_pj"]
 [connection signal="enemigo_murio" from="Plataformas/StaticBody2D6/EnemigoRojo1" to="." method="_on_enemigo_murio"]
+[connection signal="kill_pj" from="Plataformas/StaticBody2D6/EnemigoRojo1" to="." method="_on_EnemigoRojo_kill_pj"]
 [connection signal="enemigo_murio" from="Plataformas/StaticBody2D7/EnemigoRojo3" to="." method="_on_enemigo_murio"]
+[connection signal="kill_pj" from="Plataformas/StaticBody2D7/EnemigoRojo3" to="." method="_on_EnemigoRojo_kill_pj"]
 [connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D2_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D2" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
 [connection signal="timeout" from="KinematicBody2D2/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
@@ -716,12 +722,12 @@ script = ExtResource( 20 )
 [connection signal="timeout" from="KinematicBody2D5/Timer" to="PersonajeJugable" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D3_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D3" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
-[connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_TimerBox3_timeout"]
 [connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_Timer_timeout"]
+[connection signal="timeout" from="KinematicBody2D3/TimerBox3" to="PersonajeJugable" method="_on_TimerBox3_timeout"]
 [connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D4_body_entered"]
 [connection signal="body_entered" from="KinematicBody2D4" to="PersonajeJugable" method="_on_KinematicBody2D_body_entered"]
-[connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_TimerBox2_timeout"]
 [connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_Timer_timeout"]
+[connection signal="timeout" from="KinematicBody2D4/TimerBox2" to="PersonajeJugable" method="_on_TimerBox2_timeout"]
 [connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin2" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin3" to="." method="_on_Coin_pj_entered"]

@@ -7,8 +7,9 @@ signal juego_frenado()
 signal juego_activo()
 var caja_cayendo = false
 var tiempo = 10
+var keys_collected = 0
 var enemigos = {}
-
+var puede_avanzar = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +26,11 @@ func _ready():
 func _process(delta):
 	set_position_to_enemies()
 	check_distance_caja()
+	if (keys_collected == 1):
+		$Plataformas/plataforma4/CajaFinal/AnimatedSprite.play("fin")
+		puede_avanzar = true
+	elif (keys_collected == 0):
+		$Plataformas/plataforma4/CajaFinal/AnimatedSprite.play("mitad")
 	if($PersonajeJugable.caminando):
 		$CanvasLayer/Time/RedClock.visible = false
 		$CanvasLayer/Time/WhiteClock.visible = true
@@ -50,7 +56,8 @@ func check_distance_caja():
 		$"Limit horizontal/RigidBody2D".mode = RigidBody2D.MODE_STATIC
 
 func _on_CajaFinal_personaje_entro():
-	get_tree().change_scene("res://Niveles/PrimerNivel.tscn")
+	if puede_avanzar:
+		get_tree().change_scene("res://Niveles/PrimerNivel.tscn")
 
 
 func _on_Area2D_body_entered(body):
@@ -60,7 +67,8 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Coin_pj_entered():
-	$CanvasLayer/Coins.text = "0"
+	keys_collected = keys_collected + 1
+	$CanvasLayer/Coins.text = str(keys_collected)
 
 
 func _on_Timer_timeout():

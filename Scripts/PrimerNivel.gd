@@ -3,10 +3,11 @@ extends Node2D
 
 signal juego_frenado()
 signal juego_activo()
-var monedas = 0
 var tiempo = 50
 var esta_en_final = false
 var enemigos = {}
+var keys_collected = 0
+var puede_avanzar = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,7 +33,12 @@ func _ready():
 
 func _process(delta):
 	set_position_to_enemies()
-	check_ending()
+	#check_ending()
+	if (keys_collected == 10):
+		$CajaFinal/AnimatedSprite.play("fin")
+		puede_avanzar = true
+	elif (keys_collected < 10):
+		$CajaFinal/AnimatedSprite.play("mitad")
 	if $PersonajeJugable.caminando:
 		_retomar_juego()
 	else:
@@ -40,9 +46,9 @@ func _process(delta):
 
 
 func _on_Coin_pj_entered():
-	monedas = monedas + 1
+	keys_collected = keys_collected + 1
 	$Coin.play()
-	$CanvasLayer/Monedas.text = str(monedas)
+	$CanvasLayer/Monedas.text = str(keys_collected)
 
 func _frenar_juego():
 	emit_signal("juego_frenado")
@@ -72,7 +78,8 @@ func _on_bottom_body_entered(body):
 
 
 func _on_CajaFinal_personaje_entro():
-	get_tree().change_scene("res://Niveles/SegundoNivel.tscn")
+	if puede_avanzar:
+		get_tree().change_scene("res://Niveles/SegundoNivel.tscn")
 	#esta_en_final = true
 	#if !$Success.playing:
 	#	$Success.play()
