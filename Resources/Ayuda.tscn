@@ -8,7 +8,7 @@
 font_path = "res://fonts/font.ttf"
 
 [sub_resource type="DynamicFont" id=2]
-size = 28
+size = 24
 font_data = SubResource( 1 )
 
 [sub_resource type="DynamicFontData" id=3]
@@ -46,17 +46,19 @@ margin_right = 455.947
 margin_bottom = 240.624
 rect_pivot_offset = Vector2( 68.8159, 33.5 )
 custom_fonts/font = SubResource( 2 )
-text = "flechas       Movimiento
-space             salto"
+text = "flechas       movimiento
+space             salto
+shift               avanzar entorno
+ctrl                 frenar enemigos"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label4" type="Label" parent="."]
 margin_left = 49.9468
-margin_top = 294.923
-margin_right = 455.947
-margin_bottom = 361.923
+margin_top = 321.923
+margin_right = 834.947
+margin_bottom = 535.923
 rect_pivot_offset = Vector2( 68.8159, 33.5 )
 custom_fonts/font = SubResource( 2 )
 text = "Al moverse tenes el control del entorno.
