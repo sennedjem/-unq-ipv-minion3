@@ -518,7 +518,7 @@ texture = ExtResource( 16 )
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="fondonegro" type="Sprite" parent="."]
+[node name="fondonegro" type="Sprite" parent="."]y
 position = Vector2( 693.009, 345.995 )
 scale = Vector2( 1.18743, 0.923929 )
 z_index = -16
@@ -570,6 +570,7 @@ stream = ExtResource( 18 )
 [connection signal="juego_frenado" from="." to="Monedas/Coin13" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin12" method="_on_Level_juego_frenado"]
 [connection signal="juego_frenado" from="." to="Monedas/Coin14" method="_on_Level_juego_frenado"]
+
 [connection signal="pj_entered" from="Monedas/Coin" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin2" to="." method="_on_Coin_pj_entered"]
 [connection signal="pj_entered" from="Monedas/Coin3" to="." method="_on_Coin_pj_entered"]
