@@ -7,7 +7,7 @@ signal pj_step()
 var direccion;
 
 export (int) var run_speed = 100
-export (int) var jump_speed = -340
+export (int) var jump_speed = -380
 export (int) var gravity = 1200
 
 var velocity = Vector2()
