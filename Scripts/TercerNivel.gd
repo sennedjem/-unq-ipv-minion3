@@ -74,7 +74,9 @@ func _on_Coin_pj_entered():
 
 func _on_Area2D_body_entered(body):
 	if (body.name == "PersonajeJugable"):
+		print("Jeje")
 		$PersonajeJugable.jump_power_up()
+		$JumpLevelUp.play()
 		$Area2D.queue_free()
 
 func _on_Timer_timeout():
