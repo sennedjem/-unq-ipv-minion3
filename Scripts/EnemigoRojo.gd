@@ -97,10 +97,9 @@ func _pause():
 		return ChangeScene.pause
 		
 func _shoot_bullet():
-	disparando = true
-	$Bala.visible = true
-	$Bala.disparando = true
-	$Bala.player_position = personajeJugablePosition
+	if $Timer2.is_stopped():
+		$Timer2.start()
+	
 
 func _on_Level_juego_activo():
 	self.active = true
@@ -167,3 +166,11 @@ func _on_AnimatedSprite_animation_finished():
 func _on_Bala_body_entered(body):
 	if(body.name == "PersonajeJugable"&& !dead):
 		emit_signal("kill_pj")
+
+
+func _on_Timer2_timeout():
+	disparando = true
+	$Bala.visible = true
+	$Bala.disparando = true
+	$Bala.player_position = personajeJugablePosition
+	$Timer2.stop()

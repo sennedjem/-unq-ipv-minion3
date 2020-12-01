@@ -25,27 +25,27 @@ __meta__ = {
 }
 
 [node name="IniciarJuegoBoton" type="Button" parent="."]
-margin_left = 424.642
-margin_top = 395.724
-margin_right = 537.642
-margin_bottom = 415.724
+margin_left = 420.294
+margin_top = 428.746
+margin_right = 549.294
+margin_bottom = 448.746
 text = "Ir a pantalla inicial"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ReiniciarJuegoBoton" type="Button" parent="."]
-margin_left = 437.755
-margin_top = 428.746
-margin_right = 539.755
-margin_bottom = 448.746
+margin_left = 419.158
+margin_top = 400.546
+margin_right = 548.158
+margin_bottom = 420.546
 text = "Reiniciar nivel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="fondonegro" type="Sprite" parent="."]
-position = Vector2( 495.66, 485.783 )
+position = Vector2( 590.518, 376.952 )
 z_index = -1
 texture = ExtResource( 2 )
 
