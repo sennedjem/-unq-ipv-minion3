@@ -74,7 +74,9 @@ func _on_Coin_pj_entered():
 
 func _on_Area2D_body_entered(body):
 	if (body.name == "PersonajeJugable"):
+		print("Jeje")
 		$PersonajeJugable.jump_power_up()
+		$JumpLevelUp.play()
 		$Area2D.queue_free()
 
 func _on_Timer_timeout():
@@ -117,7 +119,8 @@ func _on_enemigo_murio(body):
 	
 func set_position_to_enemies():
 	for enemigo in enemigos.values():
-		enemigo.personajeJugablePosition = $PersonajeJugable.global_position
+		if enemigo != null:
+			enemigo.personajeJugablePosition = $PersonajeJugable.global_position
 
 
 func _on_EnemigoRojo_kill_pj():
