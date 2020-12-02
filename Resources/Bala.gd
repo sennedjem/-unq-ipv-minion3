@@ -36,3 +36,4 @@ func _on_Timer_timeout():
 	print('jaja')
 	$"..".disparando = false
 	disparando = false
+	$".."._bullet_finish()

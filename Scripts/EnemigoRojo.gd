@@ -33,8 +33,9 @@ func _set_random_direction():
 func _process(delta):
 	if!dead:
 		velocity.x = 0
-		_check_pj_proximity()	
-		_check_im_on_the_edge()
+		_check_pj_proximity()
+		if(state == "normal"):	
+			_check_im_on_the_edge()
 		_update_velocity_vector(delta)
 		_move()
 	
@@ -76,8 +77,9 @@ func _im_on_left_top():
 	return self.position.x< left_top_distance
 		
 func _check_pj_proximity():
-	if(personajeJugablePosition.distance_to(self.global_position)<100 && _same_level_y()):
+	if(personajeJugablePosition.distance_to(self.global_position)<100&& _same_level_y()):
 		state = "atack"
+		_check_pj_distance()
 		if !disparando&&!_pause()&&_can_shoot():
 			_shoot_bullet() 
 	else:
@@ -174,3 +176,10 @@ func _on_Timer2_timeout():
 	$Bala.disparando = true
 	$Bala.player_position = personajeJugablePosition
 	$Timer2.stop()
+
+func _bullet_finish():
+	if !disparando:
+		if direcction == "right":
+			$Bala.position.x = 0
+		else:
+			$Bala.position.x = -37	
